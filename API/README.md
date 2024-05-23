@@ -1,79 +1,80 @@
-# API DOCUMENTATION 
+# DOCUMENTACIÓN DE LA API
 
-Create an .env file with the following constants, where:
-   - PORT : is the port where you go to run your server.
-   - DB : is the URI of the mongo database.
-   - JWT_SECRET : is the secret key used for JWT
-   - SECRET: is the session secret
-   - CLOUDINARY_NAME
-   - CLOUDINARY_API_KEY
-   - CLOUDINARY_API_SECRET
-   - GMAIL_USER
-   - GMAIL_PASS
+Crea un archivo `.env` con las siguientes constantes, donde:
 
-Install the dependencies with npm i
-Run the server with npm run dev (development) or npm start (production)
+- `PORT` : es el puerto donde se ejecutará tu servidor.
+- `DB` : es la URI de la base de datos de Mongo.
+- `JWT_SECRET` : es la clave secreta utilizada para JWT.
+- `SECRET`: es el secreto de la sesión.
+- `CLOUDINARY_NAME`
+- `CLOUDINARY_API_KEY`
+- `CLOUDINARY_API_SECRET`
+- `GMAIL_USER`
+- `GMAIL_PASS`
 
-## API Reference
+Instala las dependencias con `npm i`.
+Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 
-### Users
+## Referencia de la API
 
-### User schema
+### Usuarios
 
-| Key | Type |  Required |
-| :-------- | :------- | :------------------------- |
-| username | string | true |
-| email | string | true |
-| password | string | true |
-| avatar | string | false |
-| playlist | array[ObjectId] | false |
-| music album | array[ObjectId] | false |
-| favorites | array[ObjectId] | false |
-| events | array[ObjectId] | false |
+#### Esquema de Usuario
 
-### Music
+| Clave       | Tipo            | Requerido |
+| :---------- | :-------------- | :-------- |
+| username    | string          | true      |
+| email       | string          | true      |
+| password    | string          | true      |
+| avatar      | string          | false     |
+| playlist    | array[ObjectId] | false     |
+| music album | array[ObjectId] | false     |
+| favorites   | array[ObjectId] | false     |
+| events      | array[ObjectId] | false     |
 
-### Music schema
+### Música
 
-| Key | Type |  Required |
-| :-------- | :------- | :------------------------- |
-| title | string | true |
-| genre | string | true |
-| id_user | string | true |
-| URL | string | true |
-| Likes | array[] | false |
-| image | string | false |
-| date | date | true |
+#### Esquema de Música
 
-### Playlist
+| Clave   | Tipo    | Requerido |
+| :------ | :------ | :-------- |
+| title   | string  | true      |
+| genre   | string  | true      |
+| id_user | string  | true      |
+| URL     | string  | true      |
+| Likes   | array[] | false     |
+| image   | string  | false     |
+| date    | date    | true      |
 
-### Playlist schema
+### Lista de Reproducción
 
-| Key | Type |  Required |
-| :-------- | :------- | :------------------------- |
-| Name | string | true |
-| Music | array[ObjectId] | true |
-| id_user | string | true |
+#### Esquema de Lista de Reproducción
 
-### Music album
+| Clave   | Tipo            | Requerido |
+| :------ | :-------------- | :-------- |
+| Name    | string          | true      |
+| Music   | array[ObjectId] | true      |
+| id_user | string          | true      |
 
-### Music album schema
+### Álbum de Música
 
-| Key | Type |  Required |
-| :-------- | :------- | :------------------------- |
-| Name | string | true |
-| genre | string | true |
-| Music | array[ObjectId] | true |
-| id_user | string | true |
+#### Esquema de Álbum de Música
 
-### Events
+| Clave   | Tipo            | Requerido |
+| :------ | :-------------- | :-------- |
+| Name    | string          | true      |
+| genre   | string          | true      |
+| Music   | array[ObjectId] | true      |
+| id_user | string          | true      |
 
-### Events schema
+### Eventos
 
-| Key | Type |  Required |
-| :-------- | :------- | :------------------------- |
-| Title | string | true |
-| Text | string | true |
-| id_user | string | true |
-| date | date | true |
-| image | string | false |
+#### Esquema de Eventos
+
+| Clave   | Tipo   | Requerido |
+| :------ | :----- | :-------- |
+| Title   | string | true      |
+| Text    | string | true      |
+| id_user | string | true      |
+| date    | date   | true      |
+| image   | string | false     |
