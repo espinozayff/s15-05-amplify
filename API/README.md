@@ -9,8 +9,6 @@ Crea un archivo `.env` con las siguientes constantes, donde:
 - `CLOUDINARY_NAME`
 - `CLOUDINARY_API_KEY`
 - `CLOUDINARY_API_SECRET`
-- `GMAIL_USER`
-- `GMAIL_PASS`
 
 Instala las dependencias con `npm i`.
 Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
