@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run linter
+# npm run lint;
+
+# Go to Client folder and check the build
+# cd ./client;
+# npm run build;
+
+# Return to root folder
+# cd ..;
+
+# Go to API folder and and typecheck
+# cd ./api;
+#npm run typecheck;
+
