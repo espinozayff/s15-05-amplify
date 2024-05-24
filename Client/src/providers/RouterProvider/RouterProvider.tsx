@@ -3,15 +3,16 @@ import {
   RouterProvider as ReactRouterProvider,
 } from "react-router-dom";
 
-import { routes } from "config";
+import { routes } from "../../config";
 import {
   Auth,
   Layout,
-} from "components";
+} from "../../components";
+import App from "../../App";
 
 const router = createBrowserRouter([
   {
-    path: routes.AUTH,
+    path: routes.LOGIN,
     element: <Auth />,
   },
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <App />,
       },
     ],
   },
