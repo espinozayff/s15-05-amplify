@@ -13,7 +13,7 @@ const TextField: React.FC<TextFieldProps> = ({
       value={value}
       onChange={onChange}
       type={type}
-      className="py-6 px-4 rounded-[10px] border-black border-2 focus-visible:ring-transparent text-[#9CA3AF]"
+      className="py-6 px-4 rounded-[10px] border-black border-[1px] focus-visible:ring-transparent text-[#9CA3AF]"
     />
   );
 };
