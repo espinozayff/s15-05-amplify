@@ -1,12 +1,12 @@
 import { forwardRef } from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "components/common/shadcn/input";
 import {
   FormControl,
   FormDescription,
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "components/common/shadcn/form";
 
 import { TextFieldProps } from "./TextField.types";
 
