@@ -11,17 +11,10 @@ import {
 import { TextFieldProps } from "./TextField.types";
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-  (
-    { placeholder, value, onChange, type, label, description, ...props },
-    ref
-  ) => {
+  ({ placeholder, value, onChange, type, label, description, ...props }, ref) => {
     return (
       <FormItem>
-        {label && (
-          <FormLabel className="text-[#111928] font-medium text-sm">
-            {label}
-          </FormLabel>
-        )}
+        {label && <FormLabel className="text-[#111928] font-medium text-sm">{label}</FormLabel>}
         <FormControl>
           <Input
             placeholder={placeholder}
@@ -34,14 +27,12 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           />
         </FormControl>
         {description && (
-          <FormDescription className="text-[12px] text-[#4B5563]">
-            {description}
-          </FormDescription>
+          <FormDescription className="text-[12px] text-[#4B5563]">{description}</FormDescription>
         )}
         <FormMessage />
       </FormItem>
     );
-  }
+  },
 );
-
+TextField.displayName = "TextField";
 export default TextField;

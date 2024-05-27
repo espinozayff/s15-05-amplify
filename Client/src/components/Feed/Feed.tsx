@@ -11,6 +11,7 @@ function Feed(): JSX.Element {
       message: "Username must be at least 2 characters.",
     }),
   });
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -18,31 +19,32 @@ function Feed(): JSX.Element {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(data: z.infer<typeof FormSchema>): void {
     console.log("You submitted the following values:", data);
   }
 
   return (
-  //TODO: Eliminar esto cuando se cree el componente Modal 
-  <div className="container mx-auto my-5">
-  <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-      <FormField
-        control={form.control}
-        name="email"
-        render={({ field }) => (
-          <TextField
-            placeholder="ejemplo@mail.com"
-            type="email"
-            label="Correo Electrónico"
-            description="Necesitas acceso a tu cuenta de correo electrónico desde tu celular"
-            {...field}
+    //TODO: Eliminar esto cuando se cree el componente Modal
+    <div className="container mx-auto my-5">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <TextField
+                placeholder="ejemplo@mail.com"
+                type="email"
+                label="Correo Electrónico"
+                description="Necesitas acceso a tu cuenta de correo electrónico desde tu celular"
+                {...field}
+              />
+            )}
           />
-        )}
-      />
-    </form>
-  </Form>
-</div>);
+        </form>
+      </Form>
+    </div>
+  );
 }
 
 export default Feed;
