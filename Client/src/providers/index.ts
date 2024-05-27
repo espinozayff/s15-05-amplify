@@ -1,1 +1,1 @@
-export { default as ReactProvider } from "./RouterProvider";
+export { default } from "./RouterProvider";
