@@ -1,6 +1,6 @@
 // src/components/common/Button/Button.tsx
 import React from 'react';
-
+import { ButtonProps } from './Button.types';
 {/* How to use 
 <Button variant="primary" onClick={() => console.log('Primary Button Clicked')}>
 Primary Button
@@ -8,12 +8,6 @@ Primary Button
 <Button variant="secondary" onClick={() => console.log('Secondary Button Clicked')}>
 Secondary Button
 </Button> */}
-
-interface ButtonProps {
-  variant: 'primary' | 'secondary';
-  onClick?: () => void;
-  children: React.ReactNode;
-}
 
 const Button: React.FC<ButtonProps> = ({ variant, onClick, children }) => {
   const baseStyles = 'px-4 py-2 rounded font-bold focus:outline-none focus:ring-2';
@@ -30,3 +24,4 @@ const Button: React.FC<ButtonProps> = ({ variant, onClick, children }) => {
 };
 
 export default Button;
+
