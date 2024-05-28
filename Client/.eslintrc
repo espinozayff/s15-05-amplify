@@ -1,0 +1,51 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": ["node_modules/", "dist/", "package.json", "package-lock.json"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks", "react-refresh"],
+  "rules": {
+    "curly": "error",
+    "eqeqeq": "error",
+    "eol-last": ["error", "always"],
+    "import/extensions": [ "error", "ignorePackages", { "ts": "never", "tsx": "never" } ],
+    "import/prefer-default-export": "error",
+    "max-len": [ "warn", { "code": 100, "ignoreComments": true, "ignoreUrls": true } ],
+    "no-unused-vars": "warn",
+    "no-shadow": "off",
+    "prefer-const": "warn",
+    "quotes": ["error", "double"],
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react/jsx-filename-extension": [ "warn", { "extensions": [ ".tsx" ] } ],
+    "@typescript-eslint/explicit-function-return-type": [ "error", { "allowExpressions": true } ],
+    "@typescript-eslint/no-shadow": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}
