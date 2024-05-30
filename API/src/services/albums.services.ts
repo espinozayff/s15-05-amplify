@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongoose'
 import { albumsModel } from "../models/albums.model";
-import { usersModel } from "../models/users.model"
-import { songsModel } from "../models/songs.model"
+import User from "../models/users.model"
+//import { songsModel } from "../models/songs.model"
 
 type searchParameters = {
     title?: String,
@@ -17,7 +17,7 @@ type albumModel = {
 
 export const findAlbum = async (data:searchParameters) => {
     if(data.title && data.username){
-        const user = await usersModel.findOne({username: data.username})
+        const user = await User.findOne({username: data.username})
         if(!user){
             const result = await albumsModel.find({title: data.title})
             return result
@@ -29,7 +29,7 @@ export const findAlbum = async (data:searchParameters) => {
         const result = await albumsModel.find({title: data.title})
         return result
     } else if(!data.title){
-        const user = await usersModel.find({username: data.username})
+        const user = await User.find({username: data.username})
         if(!user){
             return undefined
         } else {
@@ -40,14 +40,14 @@ export const findAlbum = async (data:searchParameters) => {
 }
 
 export const createAlbum = async (title: String, genre: String, username: String, songs: ObjectId[]) => {
-    const user = await usersModel.findOne({username: username})
+    const user = await User.findOne({username: username})
     const newAlbum = await albumsModel.create({title: title, genre: genre, owner: user._id, songs: songs})
     return newAlbum    
 }
 
 export const updateOneAlbum = async (data: albumModel) => {
     const {title, genre, songs} = data
-    const user = await usersModel.findOne({username: data.username})
+    const user = await User.findOne({username: data.username})
     if(!user){
         return 0
     } else {
@@ -65,7 +65,7 @@ export const updateOneAlbum = async (data: albumModel) => {
 } 
 
 export const deleteFullAlbum = async (title: String, username: String) => {
-    const user = await usersModel.findOne({username: username})
+    const user = await User.findOne({username: username})
     if(!user){
         return 0
     } else {
