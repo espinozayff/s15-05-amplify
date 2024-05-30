@@ -37,16 +37,12 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
   const isReady = useRef<boolean>(false);
   const userInteracted = useRef<boolean>(false);
 
-  function canPlay(): void {
+  useEffect(() => {
     if (userInteracted.current && isPlaying) {
       audioRef.current?.play();
     }
-  }
 
-  useEffect(() => {
-    canPlay();
-
-    if ("mediaSession" in navigator && currentTrack?.cover) {
+    if ("mediaSession" in navigator && currentTrack) {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: currentTrack.title,
         artist: currentTrack.artist,
@@ -54,9 +50,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         artwork: [{ src: currentTrack?.cover, sizes: "256x256", type: "image/png" }],
       });
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trackIndex, isPlaying]);
+  }, [trackIndex, isPlaying, currentTrack]);
 
   const handleLoadedMetadata = (): void => {
     if (audioRef.current) {
