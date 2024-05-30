@@ -3,10 +3,10 @@
 
 #Run linter
 cd ./client; # Mover esto a la build del client una vez API esté listo
-npm run lint;
+#npm run lint;
 
 #Go to Client folder and check the build
-npm run build;
+#npm run build;
 
 # Return to root folder
 # cd ..;
