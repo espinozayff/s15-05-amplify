@@ -1,51 +1,47 @@
 import User from "./users.model";
-import { PaginateModel, PaginateOptions, PaginateResult, Types, Document } from "mongoose";
-
-interface ReadOptions {
-  filter: any;
-  options: PaginateOptions;
-}
+import { Types, Document, Model } from "mongoose";
 
 interface userData {
-    email: string,
-    password: string,
-    avatar?: string,
-    username: string
+  email: string;
+  password: string;
+  avatar?: string;
+  username: string;
 }
 
 class MongoManager<T extends Document> {
-  private model: PaginateModel<T>;  
+  private model: Model<T>;
 
-  constructor(model: PaginateModel<T>) { 
+  constructor(model: Model<T>) {
     this.model = model;
   }
 
   async create(data: userData): Promise<T> {
     try {
-        const one = await this.model.create(data)
-        return one
+      const one = await this.model.create(data);
+      return one;
     } catch (error) {
-        throw error
+      throw error;
     }
   }
 
-  async read({ filter, options }: ReadOptions): Promise<PaginateResult<T>> {
+  async read(): Promise<T[]> {
     try {
-      const all = await this.model.paginate(filter, options);
+      const all = await this.model.find({});
       return all;
     } catch (error) {
       throw error;
     }
   }
 
-  async readOne(id: Types.ObjectId) {
+  async readOne(id: Types.ObjectId): Promise<T | null> {
     try {
-        const one = await this.model.findById(id)
-        return one
+      const one = await this.model.findById(id);
+      return one;
     } catch (error) {
-        throw error
+      throw error;
     }
   }
+
   async update(id: Types.ObjectId, data: Partial<T>): Promise<T | null> {
     try {
       const options = { new: true };
@@ -55,6 +51,7 @@ class MongoManager<T extends Document> {
       throw error;
     }
   }
+
   async destroy(id: Types.ObjectId): Promise<T | null> {
     try {
       const one = await this.model.findByIdAndDelete(id);
