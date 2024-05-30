@@ -122,7 +122,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
   }
 
   return (
-    <div className="fixed bottom-0 slide inset-x-0 z-30 bg-black/60 backdrop-blur-sm block text-white w-full max-w-screen-2xl mx-auto accent-yellow-400">
+    <div className="fixed bottom-0 slide inset-x-0 z-30 bg-black/60 backdrop-blur-sm block text-white w-full mx-auto accent-yellow-400">
       <audio
         className="hidden"
         ref={audioRef}
@@ -131,7 +131,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         onTimeUpdate={handleTimeUpdate}
         onEnded={onNextSong}
       />
-      <div className="flex justify-between items-center md:w-11/12 mx-auto max-md:flex-wrap max-md:pb-2.5">
+      <div className="flex justify-between items-center md:w-[95%] mx-auto max-md:flex-wrap max-md:pb-2.5">
         <Controls
           isReady={isReady ? true : false}
           onPrev={onPrevSong}
