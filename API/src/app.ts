@@ -1,7 +1,7 @@
 import { errorHandler } from './middleware/ErrorHandler';
 import express, { Request, Response, NextFunction } from 'express';
 import { httpResponse } from './utils/EnumsError';
-
+import albumsRoutes from "./routes/albums.routes"
 
 const app = express()
 const HttpResponse = new httpResponse();
@@ -18,5 +18,7 @@ app.get('/example', async (req: Request, res: Response, next: NextFunction) => {
 }
 );
 app.use(errorHandler);
+
+app.use("/albums", albumsRoutes)
 
 export default app;
