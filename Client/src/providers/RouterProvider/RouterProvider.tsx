@@ -1,32 +1,23 @@
-import {
-  createBrowserRouter,
-  RouterProvider as ReactRouterProvider,
-} from "react-router-dom";
+import { JSX } from "react";
+import { createBrowserRouter, RouterProvider as ReactRouterProvider } from "react-router-dom";
 
 import { routes } from "config";
-import {
-  Auth,
-  Layout,
-} from "components";
+import { Feed, Layout } from "components";
 
 const router = createBrowserRouter([
-  {
-    path: routes.AUTH,
-    element: <Auth />,
-  },
   {
     path: routes.HOME,
     element: <Layout />,
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Feed />,
       },
     ],
   },
 ]);
 
-function RouterProvider() {
+function RouterProvider(): JSX.Element {
   return <ReactRouterProvider router={router} />;
 }
 
