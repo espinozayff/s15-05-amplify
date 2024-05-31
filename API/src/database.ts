@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
 
 (async () => {
-  try {
-    await mongoose.connect("mongodb://localhost:27017/AmplifyDB");
-    console.log('database is connected');
-  } catch (error) {
-    console.error(error);
-  }
+  await mongoose.connect("mongodb+srv://agustinbarrera99:hola1234@agustincluster.iqkd12i.mongodb.net/Amplify");
+  console.log('database is connected');
+  
 })();
