@@ -92,7 +92,6 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
           //console.error("Error playing the track:", error);
         }
       });
-      ws.load(currentTrack.url);
     }
   }, [currentTrack.url, ws]);
 
@@ -115,7 +114,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         artwork: [{ src: currentTrack?.cover, sizes: "256x256", type: "image/png" }],
       });
     }
-  }, [currentTrack, isPlaying, ws, isTrackLoading]);
+  }, [currentTrack, isPlaying, ws, isTrackLoading, trackIndex]);
 
   useEffect(() => {
     if (ws) {
