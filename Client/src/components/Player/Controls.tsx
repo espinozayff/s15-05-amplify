@@ -30,6 +30,7 @@ function Controls({
           <AiFillFastBackward />
         </button>
         <button
+          disabled={!isReady}
           onClick={onPlay}
           className="active:scale-95 duration-200 hover:brightness-75"
           aria-label={isPlaying ? "Pausar" : "Reproducir"}
@@ -53,7 +54,7 @@ function Controls({
         </button>
       </div>
       <img
-        className="aspect-square size-14 bg-white/5"
+        className={"aspect-square size-14 bg-white/5" + (!isReady ? " animate-pulse" : "")}
         src={track?.cover || "/ui/default-disc.webp"}
         onError={(e: SyntheticEvent<HTMLImageElement, Event>) => {
           e.currentTarget.src = "/ui/default-disc.webp";

@@ -79,6 +79,12 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
     setTrackIndex((prevIndex) => (prevIndex + 1) % tracks.length);
   }, [tracks]);
 
+  const onScrub = (value: number): void => {
+    if (ws) {
+      ws?.seekTo(value / ws.getDuration());
+    }
+  };
+
   useEffect(() => {
     if (ws && userInteracted.current) {
       //console.log("Loading new track:", currentTrack.url);
@@ -154,9 +160,10 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         <ProgressBar
           duration={ws?.getDuration() || 0}
           currentProgress={currentTime || 0}
+          onChange={(e) => onScrub(+e.target.value)}
           album={currentTrack.album}
         >
-          <div ref={wsContainer} className="w-full cursor-pointer"></div>
+          <div ref={wsContainer} className="w-full cursor-pointer max-md:hidden"></div>
         </ProgressBar>
 
         <Tracks tracks={tracks} handler={changeSong} />
