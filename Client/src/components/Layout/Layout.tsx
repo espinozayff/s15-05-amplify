@@ -1,8 +1,14 @@
 import { JSX } from "react";
 import { Outlet } from "react-router-dom";
+import NavBar from "./Navbar";
 
 function Layout(): JSX.Element {
-  return <Outlet />;
+  return (
+    <>
+      <NavBar />
+      <Outlet />
+    </>
+  );
 }
 
 export default Layout;
