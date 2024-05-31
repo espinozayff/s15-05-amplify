@@ -9,8 +9,8 @@ const albumsRouter = Router()
 
 albumsRouter.get('/', getAlbum)
 
-albumsRouter.post('/newAlbum', newAlbum)
+albumsRouter.post('/', newAlbum)
 
-albumsRouter.delete('/deleteAlbum', deleteAlbum)
+albumsRouter.delete('/', deleteAlbum)
 
 export default albumsRouter

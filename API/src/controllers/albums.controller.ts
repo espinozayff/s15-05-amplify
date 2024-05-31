@@ -19,14 +19,15 @@ export const getAlbum = async (req: Request, res: Response): Promise<void> => {
 }  
 
 export const newAlbum = async (req: Request, res: Response): Promise<void> => {
-    const {title, genre, username, songs} = req.body
+    const {title, genre, username: owner, songs} = req.body
     try {
-        const createdAlbum = await createAlbum(title, genre, username, songs)
+        const createdAlbum = await createAlbum(title, genre, owner, songs)
         if(!createdAlbum){
             res.status(400).json({message: 'Error creating Album'})
         }
         res.status(200).json({message: 'Album created successfuly', payload: createdAlbum})
     } catch (error) {
+        console.log(error)
         res.status(500).json('Server error')
     }
 }

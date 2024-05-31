@@ -2,7 +2,8 @@ import { Schema, model, Document, Types } from "mongoose";
 
 const collection = "users";
 
-interface IUser extends Document {
+export interface IUser extends Document {
+  _id: Types.ObjectId;
   email: string;
   password: string;
   avatar?: string;

@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { getAllTracks, createTrack } from "../services/tracks";
-import { TrackBody, UploadFile } from "../types";
+import { getAllTracks, createTrack } from "../services/tracks.services";
 
 export const getTracks = async (req: Request, res: Response) => {
     try {
@@ -20,7 +19,7 @@ export const getTracks = async (req: Request, res: Response) => {
 
 export const postTrack = async (req: Request, res: Response) => {
     const { file } = req;
-    const { title, genre, likes } = req.body;
+    const { title, genre } = req.body;
 
     if (!file) {
         return res.status(400).send({ error: "No file uploaded" });

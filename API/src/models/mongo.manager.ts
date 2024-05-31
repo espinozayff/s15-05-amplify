@@ -1,4 +1,5 @@
 import User from "./users.model";
+import { IUser } from "./users.model";
 import { Types, Document, Model } from "mongoose";
 
 interface userData {
@@ -15,7 +16,7 @@ class MongoManager<T extends Document> {
     this.model = model;
   }
 
-  async create(data: userData): Promise<T> {
+  async create(data: userData): Promise<Document> {
     try {
       const one = await this.model.create(data);
       return one;
