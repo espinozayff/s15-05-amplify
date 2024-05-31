@@ -19,6 +19,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@wavesurfer/react": "^1.0.6",
+    "react-icons": "^5.2.1",
     "@hookform/resolvers": "^3.4.2",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
