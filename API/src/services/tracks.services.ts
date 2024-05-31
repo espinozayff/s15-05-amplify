@@ -19,6 +19,17 @@ export const getAllTracks = async () => {
     }
 };
 
+export const getTrack = async (id:string) => {
+    try {
+        const track = await Soundtrack.findOne({
+            id: id
+        });
+        return track;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 export const createTrack = async (file:UploadFile, body:TrackBody) => {
     try {
         const { title, genre, likes } = body;

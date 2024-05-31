@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { getAllTracks, createTrack } from "../services/tracks";
-import { TrackBody, UploadFile } from "../types";
+import { getAllTracks, createTrack, getTrack } from "../services/tracks.services";
+
 
 export const getTracks = async (req: Request, res: Response) => {
     try {
@@ -17,6 +17,24 @@ export const getTracks = async (req: Request, res: Response) => {
         console.log(err);
     }
 };
+
+export const getOneTrack = async (req: Request, res: Response) => {
+    const {id} = req.params 
+    try {
+        const track = await getTrack(id);
+
+        if (!track || track.length === 0) {
+            console.log("No tracks found in the database.");
+            return res.status(404).json({ message: "No tracks found." });
+        }
+
+        return res.status(200).json({ Track: track });
+    } catch (err) {
+        res.status(500).send({ error: err });
+        console.log(err);
+    }
+};
+
 
 export const postTrack = async (req: Request, res: Response) => {
     const { file } = req;
