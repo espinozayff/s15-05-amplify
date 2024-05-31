@@ -48,4 +48,21 @@
       bottom: 0;
     }
   }
+
+  .fadeIn {
+    transition: opacity 0.3s linear;
+    -webkit-transition: opacity 0.3s linear;
+    animation: fadeIn 0.25s linear both;
+    -webkit-animation: fadeIn 0.25s linear both;
+    will-change: opacity;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }

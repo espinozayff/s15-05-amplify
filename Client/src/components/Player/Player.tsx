@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, JSX } from "react";
+import { useEffect, useRef, useState, JSX, useCallback } from "react";
 import { ITrack } from "./Player.types";
 import { Controls, ProgressBar, Tracks } from "./index";
+import { useWavesurfer } from "@wavesurfer/react";
 
 const defaultValues = [
   {
@@ -29,17 +30,81 @@ const defaultValues = [
 
 function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element | null {
   const [trackIndex, setTrackIndex] = useState<number>(0);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [duration, setDuration] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isTrackLoading, setIsTrackLoading] = useState<boolean>(false);
   const currentTrack = tracks[trackIndex] || null;
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const isReady = useRef<boolean>(false);
+  const wsContainer = useRef(null);
   const userInteracted = useRef<boolean>(false);
+  const {
+    wavesurfer: ws,
+    isReady,
+    isPlaying,
+    currentTime,
+  } = useWavesurfer({
+    container: wsContainer,
+    waveColor: "#ddd",
+    progressColor: "#ffcc00",
+    cursorColor: "transparent",
+    barWidth: 2,
+    barRadius: 1,
+    height: 40,
+    width: "100%",
+    normalize: true,
+    barAlign: "bottom",
+    dragToSeek: true,
+    url: currentTrack.url,
+  });
+
+  const changeSong = (index: number): void => {
+    setTrackIndex(index);
+  };
+
+  const onPlay = async (): Promise<void> => {
+    userInteracted.current = true;
+    if (!isTrackLoading && ws) {
+      try {
+        await ws.playPause();
+      } catch (error) {
+        //console.error("Error playing the track:", error);
+      }
+    }
+  };
+
+  const onPrevSong = useCallback(() => {
+    userInteracted.current = true;
+    setTrackIndex((prevIndex) => (prevIndex - 1 + tracks.length) % tracks.length);
+  }, [tracks]);
+
+  const onNextSong = useCallback(() => {
+    userInteracted.current = true;
+    setTrackIndex((prevIndex) => (prevIndex + 1) % tracks.length);
+  }, [tracks]);
 
   useEffect(() => {
-    if (userInteracted.current && isPlaying) {
-      audioRef.current?.play();
+    if (ws && userInteracted.current) {
+      //console.log("Loading new track:", currentTrack.url);
+      setIsTrackLoading(true);
+      ws.once("ready", async () => {
+        //console.log("Track is ready:", currentTrack.url);
+        setIsTrackLoading(false);
+        try {
+          await ws.play();
+        } catch (error) {
+          //console.error("Error playing the track:", error);
+        }
+      });
+      ws.load(currentTrack.url);
+    }
+  }, [currentTrack.url, ws]);
+
+  useEffect(() => {
+    if (userInteracted.current && isPlaying && !isTrackLoading) {
+      (async () => {
+        try {
+          await ws?.play();
+        } catch (error) {
+          //console.error("Error playing the track:", error);
+        }
+      })();
     }
 
     if ("mediaSession" in navigator && currentTrack) {
@@ -50,72 +115,26 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         artwork: [{ src: currentTrack?.cover, sizes: "256x256", type: "image/png" }],
       });
     }
-  }, [trackIndex, isPlaying, currentTrack]);
+  }, [currentTrack, isPlaying, ws, isTrackLoading]);
 
-  const handleLoadedMetadata = (): void => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
+  useEffect(() => {
+    if (ws) {
+      ws.on("finish", onNextSong);
+      ws.on("seeking", async () => {
+        try {
+          await ws.play();
+        } catch (error) {
+          //console.error("Error seeking the track:", error);
+        }
+      });
     }
-  };
 
-  const handleTimeUpdate = (): void => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-    }
-  };
-
-  const onPlay = (): void => {
-    userInteracted.current = true;
-    if (isPlaying) {
-      audioRef.current?.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current?.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const onNextSong = (): void => {
-    userInteracted.current = true;
-    if (trackIndex < tracks.length - 1) {
-      setTrackIndex(trackIndex + 1);
-    } else {
-      setTrackIndex(0);
-    }
-    audioRef.current?.play();
-    setIsPlaying(true);
-  };
-
-  const onPrevSong = (): void => {
-    userInteracted.current = true;
-    if (trackIndex - 1 < 0) {
-      setTrackIndex(tracks.length - 1);
-    } else {
-      setTrackIndex(trackIndex - 1);
-    }
-    audioRef.current?.play();
-    setIsPlaying(true);
-  };
-
-  const onScrub = (value: number): void => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = value;
-      setCurrentTime(audioRef.current.currentTime);
-      audioRef.current?.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const onScrubEnd = (): void => {
-    if (!isPlaying) {
-      setIsPlaying(true);
-      onPlay();
-    }
-  };
-
-  const changeSong = (index: number): void => {
-    setTrackIndex(index);
-  };
+    return () => {
+      if (ws) {
+        ws.un("finish", onNextSong);
+      }
+    };
+  }, [ws, onNextSong]);
 
   if (tracks.length === 0) {
     return null;
@@ -123,17 +142,9 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
 
   return (
     <div className="fixed bottom-0 slide inset-x-0 z-30 bg-black/60 backdrop-blur-sm block text-white w-full mx-auto accent-yellow-400">
-      <audio
-        className="hidden"
-        ref={audioRef}
-        src={currentTrack.url}
-        onLoadedMetadata={handleLoadedMetadata}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={onNextSong}
-      />
       <div className="flex justify-between items-center md:w-[95%] mx-auto max-md:flex-wrap max-md:pb-2.5">
         <Controls
-          isReady={isReady ? true : false}
+          isReady={isReady}
           onPrev={onPrevSong}
           onNext={onNextSong}
           onPlay={onPlay}
@@ -142,13 +153,12 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         />
 
         <ProgressBar
-          duration={duration}
-          currentProgress={currentTime}
-          onChange={(e) => onScrub(+e.target.value)}
-          onMouseUp={onScrubEnd}
-          onKeyUp={onScrubEnd}
+          duration={ws?.getDuration() || 0}
+          currentProgress={currentTime || 0}
           album={currentTrack.album}
-        />
+        >
+          <div ref={wsContainer} className="w-full cursor-pointer"></div>
+        </ProgressBar>
 
         <Tracks tracks={tracks} handler={changeSong} />
       </div>
