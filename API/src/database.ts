@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+import { db } from "./utils/constant";
 
 (async () => {
-  await mongoose.connect("mongodb+srv://agustinbarrera99:hola1234@agustincluster.iqkd12i.mongodb.net/Amplify");
+  await mongoose.connect(db);
   console.log('database is connected');
   
 })();
