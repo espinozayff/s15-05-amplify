@@ -1,9 +1,9 @@
-import { Schema, model, Document, Types, PaginateModel} from "mongoose";
-import mongoosePaginate from "mongoose-paginate-v2";
+import { Schema, model, Document, Types } from "mongoose";
 
 const collection = "users";
 
-interface IUser extends Document {
+export interface IUser extends Document {
+  _id: Types.ObjectId;
   email: string;
   password: string;
   avatar?: string;
@@ -21,46 +21,18 @@ const userSchema = new Schema<IUser>(
     password: { type: String, required: true },
     avatar: {
       type: String,
-      default:
-        "https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg",
+      default: "https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg",
     },
     username: { type: String, required: true, unique: true },
-    favorite: [
-      {
-        type: Types.ObjectId,
-        ref: "music"
-      }
-    ],
-    my_music: [
-      {
-        type: Types.ObjectId,
-        ref: "music"
-      }
-    ],
-    playlists: [
-      {
-        type: Types.ObjectId,
-        ref: "playlist"
-      }
-    ],
-    albums: [
-      {
-        type: Types.ObjectId,
-        ref: "album"
-      }
-    ],
-    events: [
-      {
-        type: Types.ObjectId,
-        ref: "events"
-      }
-    ],
+    favorite: [{ type: Types.ObjectId, ref: "music" }],
+    my_music: [{ type: Types.ObjectId, ref: "music" }],
+    playlists: [{ type: Types.ObjectId, ref: "playlist" }],
+    albums: [{ type: Types.ObjectId, ref: "album" }],
+    events: [{ type: Types.ObjectId, ref: "events" }],
   },
   { timestamps: true }
 );
 
-userSchema.plugin(mongoosePaginate);
-
-const User = model<IUser, PaginateModel<IUser>>(collection, userSchema);
+const User = model<IUser>(collection, userSchema);
 
 export default User;
