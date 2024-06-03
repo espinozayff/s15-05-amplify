@@ -3,36 +3,71 @@
 @tailwind utilities;
 
 @layer utilities {
+  .progress-bar-container {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: whitesmoke;
+  }
+
   input[type="range"].progress-bar {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: 8px;
-    background: whitesmoke;
-    position: relative;
-    cursor: pointer;
-  }
-
-  input[type="range"].progress-bar::after {
-    width: 16px;
-    height: 16px;
-    @apply bg-yellow-400 hover:bg-yellow-400;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 2;
-    position: absolute;
-    top: -8px;
-  }
-
-  input[type="range"].progress-bar::before {
-    content: "";
-    height: 8px;
-    @apply bg-yellow-400 hover:bg-yellow-400;
+    background: transparent;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  input[type="range"].progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    @apply bg-yellow-400;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    top: -4px;
+    z-index: 3;
+  }
+
+  input[type="range"].progress-bar::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    @apply bg-yellow-400;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+  }
+
+  input[type="range"].progress-bar::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background: transparent;
+  }
+
+  input[type="range"].progress-bar::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    background: transparent;
+  }
+
+  .progress-bar-fill {
+    content: "";
+    height: 8px;
+    @apply bg-yellow-400;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: calc(var(--progress-width) * 1%);
+    pointer-events: none;
   }
 
   .slide {
