@@ -1,12 +1,11 @@
-import punkIMG from "../../../assets/img/punkmylife.png";
 import playIcon from "../../../assets/img/playIcon.svg";
 import { TrendData } from "../../Trends/Trends.types";
 
-export default function CardTend({ genre, title, author }: TrendData) {
+export default function CardTend({ genre, title, author, image }: TrendData) {
   return (
     <div className="flex-grow max-w-[250px] min-w-[150px] w-[calc(20%-1rem)] m-1">
       <div className="relative border-none ">
-        <img className=" " src={punkIMG} alt="" />
+        <img className=" " src={image} alt="" />
         <div className="absolute top-3 right-3 bg-white py-1 px-3 rounded-full">
           <p>{genre}</p>
         </div>
