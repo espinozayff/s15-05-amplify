@@ -1,3 +1,4 @@
+import jwt from "jsonwebtoken";
 import { userService } from "../services/users.services";
 import { Types } from "mongoose";
 import { Request, Response, NextFunction } from "express";
@@ -23,6 +24,31 @@ class UsersController {
       return res.json({ statusCode: 201, response });
     } catch (error) {
       next(error);
+    }
+  };
+
+  login = async (req: Request, res: Response): Promise<Response> => {
+    try {
+      const { email, password }: { email: string; password: string } = req.body;
+  
+      if (!(email && password)) {
+        return res.status(400).send("Indica email y/o contraseña");
+      }
+  
+      //const user = users.find((us) => us.email === email);
+  
+      // if (user && (await bcrypt.compare(password, user.password))) {
+      //   const token = jwt.sign({ email }, JWT_KEY as string, {
+      //     expiresIn: "24h",
+      //   });
+      //   user.token = token;
+       // return res.status(200).json(user);
+      // } else {
+        return res.status(403).send("Credenciales inválidas");
+      // }
+    } catch (error) {
+      console.error("Ha ocurrido un error", error);
+      return res.status(500).send("Internal Server Error");
     }
   };
 
@@ -81,4 +107,4 @@ class UsersController {
 
 const controller = new UsersController(userService);
 
-export const { create, read, readOne, update, destroy } = controller;
+export const { create, login, read, readOne, update, destroy } = controller;
