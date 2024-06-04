@@ -41,7 +41,7 @@ export default function Trends() {
   ];
 
   return (
-    <>
+    <div className="flex-col">
       <div className="flex justify-between items-baseline">
         <h3 className="font-medium text-4xl text-[#666666] mb-2">Tendencias</h3>
         <p className="font-normal text-white cursor-pointer ">
@@ -70,6 +70,6 @@ export default function Trends() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }

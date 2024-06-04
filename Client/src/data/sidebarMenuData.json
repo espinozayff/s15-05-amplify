@@ -1,0 +1,47 @@
+{
+  "menus": [
+    {
+      "title": "Inicio",
+      "submenus": [
+        {
+          "title": "Últimas Subidas",
+          "href": "/#"
+        },
+        {
+          "title": "Tendencias",
+          "href": "/#"
+        }
+      ]
+    },
+    {
+      "title": "Subir Música",
+      "submenus": [
+        {
+          "title": "Subir Nueva Canción",
+          "href": "/#"
+        },
+        {
+          "title": "Mis Subidas",
+          "href": "/#"
+        }
+      ]
+    },
+    {
+      "title": "Descubrir Música",
+      "submenus": [
+        {
+          "title": "Explorar Todo",
+          "href": "/#"
+        },
+        {
+          "title": "Top Albums",
+          "href": "/#"
+        },
+        {
+          "title": "Top Charts",
+          "href": "/#"
+        }
+      ]
+    }
+  ]
+}
