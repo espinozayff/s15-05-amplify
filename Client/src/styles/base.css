@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #121212;
+}
 @layer utilities {
   input[type="range"].progress-bar {
     -webkit-appearance: none;
