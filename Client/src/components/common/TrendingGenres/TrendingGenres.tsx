@@ -2,13 +2,13 @@ import { JSX } from "react";
 import TrendingData from "../../../data/trendingGenresData.json";
 import { Link } from "react-router-dom";
 import ImageCard from "../ImageCard";
-import TitleSecundary from "../TitleSecundary";
+import Title from "../Title";
 
 function TrendingGenres(): JSX.Element {
   return (
     <div className="w-full my-5">
       <div className="flex justify-between items-end">
-        <TitleSecundary text="Top Géneros" />
+        <Title text="Top Géneros" type="secondary" as="h2" />
         <Link to={"/#"}>
           <button className="text-white">Ver todo</button>
         </Link>
