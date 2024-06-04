@@ -1,49 +1,61 @@
 [
   {
+    "id": "g001",
     "title": "Todos los Géneros",
     "href": "/#"
   },
   {
+    "id": "g002",
     "title": "Afrosounds",
     "href": "/#"
   },
   {
+    "id": "g003",
     "title": "Hip-Hop/Rap",
     "href": "/#"
   },
   {
+    "id": "g004",
     "title": "Latin",
     "href": "/#"
   },
   {
+    "id": "g005",
     "title": "Jazz/Blues",
     "href": "/#"
   },
   {
+    "id": "g006",
     "title": "Caribben",
     "href": "/#"
   },
   {
+    "id": "g007",
     "title": "Pop",
     "href": "/#"
   },
   {
+    "id": "g008",
     "title": "Gospel",
     "href": "/#"
   },
   {
+    "id": "g009",
     "title": "Electronic",
     "href": "/#"
   },
   {
+    "id": "g010",
     "title": "Rock",
     "href": "/#"
   },
   {
+    "id": "g011",
     "title": "Country",
     "href": "/#"
   },
   {
+    "id": "g012",
     "title": "Instrumental",
     "href": "/#"
   }
