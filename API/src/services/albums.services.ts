@@ -52,9 +52,12 @@ export const createAlbum = async (
   image?: String
 ) => {
   const user = await User.findOne({ username: username });
+  if(!user){
+    return 1
+  }
   const exists = await albumsModel.findOne({title: title, owner: user?._id})
   if(exists){
-    return null
+    return 2
   }
   const validSongs = songs && Array.isArray(songs) ? songs.map(song => new Types.ObjectId(song)) : [];
   const newAlbum = await albumsModel.create({

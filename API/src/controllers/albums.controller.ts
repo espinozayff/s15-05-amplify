@@ -1,77 +1,85 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { findAlbums, findOneAlbum, createAlbum, updateOneAlbum, deleteFullAlbum } from "../services/albums.services"
 import { httpResponse } from "../utils/EnumsError";
 
-export const getAlbums = async (req: Request, res: Response): Promise<void> => {
+const responseHandler = new httpResponse();
+
+export const getAlbums = async (req: Request, res: Response, next: NextFunction) => {
     try {
         if(!req.body.title && !req.body.username){
-            res.status(400).json({message: 'No parameters for search'})
+            return responseHandler.BAD_REQUEST_ERROR(res, 'No parameters for search');
         } else {
             const searchAlbum = await findAlbums(req.body)
             if(searchAlbum?.length === 0 || !searchAlbum ){
-                res.status(400).json({message: 'not founds'})
+                return responseHandler.NotFound(res, 'Not found');
             } else {
-                res.status(200).json({message: 'Successful search', payload: searchAlbum})
+                return responseHandler.OK(res, { message: 'Successful search', payload: searchAlbum });
             }
         }
     } catch (error) {
-        res.status(500).json('Server error')
+        next(error); 
     }
 }
 
-export const getAlbumById = async (req: Request, res: Response): Promise<void> => {
-    const {id} = req.params
+export const getAlbumById = async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params
     try {
         const searchAlbum = await findOneAlbum(id)
         if(!searchAlbum){
-            res.status(400).json({message: 'not'})
+            return responseHandler.NotFound(res, 'Not found');
         } else {
-            res.status(200).json({message: 'Successful search', payload: searchAlbum})
+            return responseHandler.OK(res, { message: 'Successful search', payload: searchAlbum });
         }
     } catch (error) {
-        res.status(500).json('Server error')
+        next(error); 
     }
 }
 
-export const newAlbum = async (req: Request, res: Response): Promise<void> => {
+export const newAlbum = async (req: Request, res: Response, next: NextFunction) => {
     const {title, genre, username, image, songs} = req.body
     try {
+        if(!title || !genre || !username){
+            return responseHandler.BAD_REQUEST_ERROR(res, 'Not all required fields provided')
+        }
         const createdAlbum = await createAlbum(title, genre, username, image, songs)
-        if(!createdAlbum){
-            res.status(400).json({message: 'Error creating Album'})
+        if(createdAlbum === 1){
+            return responseHandler.UNAUTHORIZED(res, 'No user found')
+        }
+        if(createdAlbum === 2){
+            return responseHandler.BAD_REQUEST_ERROR(res, 'Album almost exists');
         } else {
-            res.status(200).json({message: 'Album created successfuly', payload: createdAlbum})
+            return responseHandler.OK(res, { message: 'Album created successfuly', payload: createdAlbum });
         }
     } catch (error) {
-        res.status(500).json('Server error')
+        next(error); 
     }
 }
 
-export const updateAlbum = async (req: Request, res: Response): Promise<void> => {
+export const updateAlbum = async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params
     const update = await updateOneAlbum(id, req.body)
     try {
         if(update){
-            res.status(200).json({message: "Album updated"})
+            return responseHandler.OK(res, { message: 'Album updated', payload: update });
         } else {
-            res.status(400).json({message: "Couldnt update album"})
+            return responseHandler.BAD_REQUEST_ERROR(res, 'Couldn´t update album');
         }
     } catch (error) {
-        res.status(500).json('Server error')
+        next(error); 
     }
     
 }
 
-export const deleteAlbum = async (req: Request, res: Response): Promise<void> => {
+export const deleteAlbum = async (req: Request, res: Response, next: NextFunction) => {
     const {title, username} = req.body
     try {
         const deleteAlbum = await deleteFullAlbum(title, username)
         if(!deleteAlbum){
-            res.status(400).json({message: 'not deleted'})
+            return responseHandler.BAD_REQUEST_ERROR(res, 'Couldnt delete album');
         } else {
-            res.status(200).json({message: 'Successful deletion'})
+            return responseHandler.OK(res, 'Successful deletion');
         }
     } catch (error) {
-        res.status(500).json('Server error')
+        next(error); 
     }
 }
