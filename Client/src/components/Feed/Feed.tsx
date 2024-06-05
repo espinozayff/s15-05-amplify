@@ -1,48 +1,37 @@
-import { JSX } from "react";
-import TextField from "../common/TextField";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Form, FormField } from "components/common/shadcn/form";
+import { JSX, useState } from "react";
+import LoginDialog from "../common/Auth/ingress/Ingress"; // Asegúrate de importar correctamente
+import Register from "../common/Auth/register";
 
 function Feed(): JSX.Element {
-  const FormSchema = z.object({
-    email: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
-    }),
-  });
+  const [isRegisterOpen, setRegisterOpen] = useState(false);
+  const [isLoginOpen, setLoginOpen] = useState(false);
 
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      email: "",
-    },
-  });
+  const openRegister = () => {
+    setRegisterOpen(true);
+    setLoginOpen(false);
+  };
 
-  function onSubmit(data: z.infer<typeof FormSchema>): void {
-    console.log("You submitted the following values:", data);
-  }
+  const openLogin = () => {
+    setRegisterOpen(false);
+    setLoginOpen(true);
+  };
 
   return (
-    //TODO: Eliminar esto cuando se cree el componente Modal
     <div className="container mx-auto my-5">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <TextField
-                placeholder="ejemplo@mail.com"
-                type="email"
-                label="Correo Electrónico"
-                description="Necesitas acceso a tu cuenta de correo electrónico desde tu celular"
-                {...field}
-              />
-            )}
-          />
-        </form>
-      </Form>
+      <div className="flex items-center justify-between w-52">
+        <button className="bg-black py-2 px-3 text-white rounded-md" onClick={openLogin}>Iniciar sesion</button>
+        <LoginDialog
+          openLogin={isLoginOpen}
+          onClose={() => setLoginOpen(false)}
+          handleRegister={openRegister}
+        />
+        <button className="bg-white py-2 px-3 text-black rounded-md" onClick={openRegister}>Registro</button>
+        <Register
+          openLogin={isRegisterOpen}
+          onClose={() => setRegisterOpen(false)}
+          handleLogin={openLogin}
+        />
+      </div>
     </div>
   );
 }
