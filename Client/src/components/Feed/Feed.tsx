@@ -28,7 +28,6 @@ function Feed(): JSX.Element {
   return (
     //TODO: Eliminar esto cuando se cree el componente Modal
     <div className="container mx-auto my-5">
-      <Carousel />
       <Sidebar />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
