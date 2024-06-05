@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MenuList: React.FC<MenuProps> = ({ menus }) => {
   return (
-    <div className="flex flex-col justify-start">
+    <div className="flex flex-col justify-start p-2">
       {menus.map((menu) => (
         <div key={menu.id}>
           <div className="my-4 ml-3 list-none">
