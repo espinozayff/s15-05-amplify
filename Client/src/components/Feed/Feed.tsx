@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Form, FormField } from "components/common/shadcn/form";
 import Carousel from "../common/Carrousel/Carousel";
+import Sidebar from "../Layout/Sidebar";
 
 function Feed(): JSX.Element {
   const FormSchema = z.object({
@@ -28,6 +29,7 @@ function Feed(): JSX.Element {
     //TODO: Eliminar esto cuando se cree el componente Modal
     <div className="container mx-auto my-5">
       <Carousel />
+      <Sidebar />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
