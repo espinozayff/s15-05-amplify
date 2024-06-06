@@ -1,1 +1,1 @@
-export {default} from './CardTend'
+export { default } from "./CardTend";
