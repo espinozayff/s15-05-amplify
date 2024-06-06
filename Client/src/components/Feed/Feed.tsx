@@ -19,7 +19,7 @@ function Feed(): JSX.Element {
           <Trends />
         </div>
       </div>
-      {/** Top Géneros */}
+      {/** Top Géneros*/}
       <TrendingGenres />
     </div>
   );
