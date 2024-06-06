@@ -14,7 +14,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ placeholder, value, onChange, type, label, description, ...props }, ref) => {
     return (
       <FormItem>
-        {label && <FormLabel className="dark:text-white text-[#111928] font-medium text-sm">{label}</FormLabel>}
+        {label && (
+          <FormLabel className="dark:text-white text-white font-medium text-sm">{label}</FormLabel>
+        )}
         <FormControl>
           <Input
             placeholder={placeholder}

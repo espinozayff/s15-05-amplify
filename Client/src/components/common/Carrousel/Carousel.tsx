@@ -4,7 +4,6 @@ import LoginDialog from "../Auth/ingress/Ingress";
 import Register from "../Auth/register";
 
 const Carousel: React.FC = () => {
-  
   const [isRegisterOpen, setRegisterOpen] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
 
@@ -25,22 +24,25 @@ const Carousel: React.FC = () => {
         <h3 className="font-normal text-white md:text-7xl text-4xl">Amplify yourself</h3>
         <div className="flex justify-center gap-2 items-center mt-5">
           {/* Boton Inicio sesion */}
-          
-          <button className="text-white border rounded py-2 px-5" onClick={openLogin} >Descubir</button>
+
+          <button className="text-white border rounded py-2 px-5" onClick={openLogin}>
+            Descubir
+          </button>
           <LoginDialog
-          openLogin={isLoginOpen}
-          onClose={() => setLoginOpen(false)}
-          handleRegister={openRegister}
-        />
+            openLogin={isLoginOpen}
+            onClose={() => setLoginOpen(false)}
+            handleRegister={openRegister}
+          />
 
           {/* Boton Registrarse */}
-          <button className="text-black bg-white rounded py-2 px-5" onClick={openRegister} >Subir Musica</button>
+          <button className="text-black bg-white rounded py-2 px-5" onClick={openRegister}>
+            Subir Musica
+          </button>
           <Register
-          openLogin={isRegisterOpen}
-          onClose={() => setRegisterOpen(false)}
-          handleLogin={openLogin}
-        />
-
+            openLogin={isRegisterOpen}
+            onClose={() => setRegisterOpen(false)}
+            handleLogin={openLogin}
+          />
         </div>
       </div>
     </div>
