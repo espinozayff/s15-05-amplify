@@ -6,7 +6,7 @@ import GenresSection from "../../common/GenresSection";
 
 function Sidebar(): JSX.Element {
   return (
-    <div className="hidden lg:block w-72 h-full bg-[#121212] text-white mr-3 py-2">
+    <div className="hidden lg:block w-[17rem] h-full bg-[#000000] text-white mr-3">
       <MenuList {...SidebarData} />
       <GenresSection genres={GenresData} title="Géneros" />
       {/** Publicidad Opcional*/}

@@ -1,0 +1,7 @@
+[
+  { "id": "01", "src": "./genres/1.Punk.png", "alt": "Punk Rock", "href": "/#" },
+  { "id": "02", "src": "./genres/2.Country.jpg", "alt": "Country", "href": "/#" },
+  { "id": "03", "src": "./genres/3.Pop.png", "alt": "Pop", "href": "/#" },
+  { "id": "04", "src": "./genres/4.Mundo.jpg", "alt": "Mundo", "href": "/#" },
+  { "id": "05", "src": "./genres/5.Electro.jpg", "alt": "Electro", "href": "/#" }
+]
