@@ -1,0 +1,25 @@
+{
+  "menus": [
+    {
+      "id": "200",
+      "title": "Descubrir",
+      "submenus": [
+        {
+          "id": "201",
+          "title": "Top Canciones",
+          "href": "/#"
+        },
+        {
+          "id": "202",
+          "title": "Top Albums",
+          "href": "/#"
+        },
+        {
+          "id": "203",
+          "title": "Top Artistas",
+          "href": "/#"
+        }
+      ]
+    }
+  ]
+}
