@@ -1,52 +1,24 @@
 import { JSX } from "react";
-import TextField from "../common/TextField";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Form, FormField } from "components/common/shadcn/form";
-
 import Sidebar from "../Layout/Sidebar";
+import TrendingGenres from "../common/TrendingGenres";
+import Trends from "../Trends";
 
 function Feed(): JSX.Element {
-  const FormSchema = z.object({
-    email: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
-    }),
-  });
-
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      email: "",
-    },
-  });
-
-  function onSubmit(data: z.infer<typeof FormSchema>): void {
-    console.log("You submitted the following values:", data);
-  }
-
   return (
-    //TODO: Eliminar esto cuando se cree el componente Modal
+    <div className="container mx-auto flex flex-col bg-[#121212] px-0 mb-20">
+      {/** Carousel */}
 
-    <div className="container mx-auto flex bg-[#121212]">
-      <Sidebar />
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <TextField
-                placeholder="ejemplo@mail.com"
-                type="email"
-                label="Correo Electrónico"
-                description="Necesitas acceso a tu cuenta de correo electrónico desde tu celular"
-                {...field}
-              />
-            )}
-          />
-        </form>
-      </Form>
+      <div className="flex md:p-0 md:pr-2 p-2  md:gap-2 ">
+        <div className="w-1/5">
+          <Sidebar />
+        </div>
+        {/* Tendencias */}
+        <div className="w-full md:w-4/5">
+          <Trends />
+        </div>
+      </div>
+      {/** Top Géneros */}
+      <TrendingGenres />
     </div>
   );
 }

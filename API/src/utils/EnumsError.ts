@@ -24,6 +24,14 @@ import { Response } from "express"
       });
     };
 
+    BAD_REQUEST_ERROR(res: Response, data: any): Response {
+      return res.status(httpStatus.BAD_REQUEST_ERROR).json({
+        status: httpStatus.BAD_REQUEST_ERROR,
+        statusMsg: 'Bad Request',
+        error: data,
+      });
+    }
+
     NotFound (res: Response, data:any):Response {
       return res.status(httpStatus.NOT_FOUND).json({
         status: httpStatus.NOT_FOUND,
