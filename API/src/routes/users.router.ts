@@ -7,13 +7,14 @@ import {
   update,
   destroy,
 } from "../controllers/user.controller";
-import auth from "../middleware/auth"
+
+import verifyToken from "../middleware/auth";
 
 const usersRouter = Router();
 
 usersRouter.post("/", create);
-usersRouter.post("/", auth, login);
-usersRouter.get("/", read);
+usersRouter.post("/login", login);
+usersRouter.get("/", verifyToken, read);
 usersRouter.get("/:uid", readOne);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);

@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
-const { JWT_KEY } = process.env;
+const JWT_KEY = process.env.JWT_KEY as string;
 
 if (!JWT_KEY) {
-  throw new Error("JWT_KEY is not defined in environment variables");
+  throw new Error("JWT secret is not defined");
 }
 
 interface DecodedToken {
@@ -32,6 +32,7 @@ const verifyToken = (
     const decoded = jwt.verify(token, JWT_KEY) as DecodedToken;
     req.user = decoded;
   } catch (error) {
+    console.error("JWT verification error:", error);
     return res.status(401).send("Token inválido");
   }
 
