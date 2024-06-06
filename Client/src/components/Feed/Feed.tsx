@@ -1,15 +1,21 @@
 import { JSX } from "react";
 import Sidebar from "../Layout/Sidebar";
 import TrendingGenres from "../common/TrendingGenres";
+import Trends from "../Trends";
 
 function Feed(): JSX.Element {
   return (
-    <div className="container mx-auto flex flex-col bg-[#121212] px-0">
+    <div className="container mx-auto flex flex-col bg-[#121212] px-0 mb-20">
       {/** Carousel */}
 
-      <div className="flex">
-        <Sidebar />
-        <div className="flex flex-col">{/** Tendencias */}</div>
+      <div className="flex md:p-0 md:pr-2 p-2  md:gap-2 ">
+        <div className="w-1/5">
+          <Sidebar />
+        </div>
+        {/* Tendencias */}
+        <div className="w-full md:w-4/5">
+          <Trends />
+        </div>
       </div>
       {/** Top Géneros */}
       <TrendingGenres />
