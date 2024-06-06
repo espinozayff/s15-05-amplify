@@ -47,10 +47,10 @@ const RegisterDialog = ({ openLogin, onClose, handleLogin }: RegisterDialogProps
   return (
     <Dialog open={openLogin} onOpenChange={onClose}>
       {/* <DialogTrigger>Open</DialogTrigger> */}
-      <DialogContent>
+      <DialogContent className="bg-[#121212]">
         <DialogHeader className="text-center">
-          <DialogTitle className="text-2xl font-bold">Registro</DialogTitle>
-          <DialogDescription className="text-3xl mt-2">
+          <DialogTitle className="text-2xl font-bold dark:text-white  ">Registro</DialogTitle>
+          <DialogDescription className="text-3xl mt-2 dark:text-white ">
             Ingresa tu correo electrónico
           </DialogDescription>
         </DialogHeader>

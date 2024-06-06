@@ -46,12 +46,12 @@ const LoginDialog: React.FC<LoginDialogProps> = ({
   }
 
   return (
-    <Dialog open={openLogin} onOpenChange={onClose}>
+    <Dialog open={openLogin} onOpenChange={onClose} >
       {/* <DialogTrigger>Open</DialogTrigger> */}
-      <DialogContent>
+      <DialogContent className="bg-[#121212]">
         <DialogHeader>
-          <DialogTitle>Ingreso</DialogTitle>
-          <DialogDescription className="text-4xl">Bienvenido Nuevamente</DialogDescription>
+          <DialogTitle className="dark:text-white">Ingreso</DialogTitle>
+          <DialogDescription className="text-4xl dark:text-white">Bienvenido Nuevamente</DialogDescription>
         </DialogHeader>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
