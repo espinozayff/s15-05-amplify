@@ -49,8 +49,10 @@ const RegisterDialog = ({ openLogin, onClose, handleLogin }: RegisterDialogProps
       {/* <DialogTrigger>Open</DialogTrigger> */}
       <DialogContent className="bg-[#121212]">
         <DialogHeader className="text-center">
-          <DialogTitle className="text-2xl font-bold dark:text-white  ">Registro</DialogTitle>
-          <DialogDescription className="text-3xl mt-2 dark:text-white ">
+          <DialogTitle className="text-sm font-medium text-white dark:text-white">
+            Registro
+          </DialogTitle>
+          <DialogDescription className="text-4xl mt-2 text-white dark:text-white ">
             Ingresa tu correo electrónico
           </DialogDescription>
         </DialogHeader>
@@ -75,12 +77,17 @@ const RegisterDialog = ({ openLogin, onClose, handleLogin }: RegisterDialogProps
               label="Repetir Contraseña"
               {...form.register("confirmPassword")}
             />
-            <Button type="submit" className="w-full bg-black text-white">
+            <Button
+              type="submit"
+              className="w-full bg-black text-white hover:text-white
+               hover:border-black hover:bg-black transition duration-300"
+            >
               Registrarse
             </Button>
             <Button
               type="button"
-              className="w-full mt-2 border border-black text-white"
+              className="w-full mt-2 border text-black hover:text-white
+               hover:border-black hover:bg-black transition duration-300"
               variant="outline"
               onClick={handleLogin}
             >
