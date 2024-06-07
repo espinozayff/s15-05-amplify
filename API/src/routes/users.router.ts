@@ -1,12 +1,24 @@
 import { Router } from "express";
-import { create, read, readOne, update, destroy } from "../controllers/user.controller";
+import {
+  create,
+  login,
+  read,
+  readOne,
+  update,
+  destroy,
+  like
+} from "../controllers/user.controller";
+
+import verifyToken from "../middleware/auth";
 
 const usersRouter = Router();
 
 usersRouter.post("/", create);
-usersRouter.get("/", read);
+usersRouter.post("/login", login);
+usersRouter.get("/", verifyToken, read);
 usersRouter.get("/:uid", readOne);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
+usersRouter.put("/likes/:tid", verifyToken, like)
 
 export default usersRouter;

@@ -40,7 +40,7 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-between px-5 py-2 bg-slate-300">
+    <div className="flex items-center justify-between text-white px-5 py-2 bg-[#121212] border-none">
       <div className="sm:block hidden">
         <a href="/">
           <Logo />
