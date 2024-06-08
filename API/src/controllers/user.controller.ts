@@ -65,6 +65,7 @@ class UsersController {
       const authorization = await bcrypt.compare(password, user.password);
 
       if (authorization) {
+
         const token = jwt.sign({ email }, jwtKey, {
           expiresIn: "24h",
         });
@@ -91,8 +92,30 @@ class UsersController {
       return res.status(500).send("Internal Server Error");
     }
   };
+  
+    logout = async (req: Request, res: Response): Promise<Response> => {
+    try {
+      const token = req.headers.cookie;
+      if (!token) {
+        return res.status(400).send("Token no proporcionado");
+      }
+      req.headers["x-access-token"] = "";
+      
+      return res.status(200).send("Sesión cerrada correctamente");
+    } catch (error) {
+      console.error("Ha ocurrido un error", error);
+      return res.status(500).send("Error interno del servidor");
+    }
+  };
 
-  read = async (req: Request, res: Response, next: NextFunction): Promise<void | Object> => {
+
+
+
+  read = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void | Object> => {
     try {
       const response = await this.service.read({});
       return res.json({ statusCode: 200, response });
@@ -188,4 +211,5 @@ class UsersController {
 
 const controller = new UsersController(userService);
 
-export const { create, login, read, readOne, update, destroy, like } = controller;
+
+export const { create, login, logout, read, readOne, update, destroy, like } = controller;

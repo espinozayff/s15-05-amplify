@@ -19,10 +19,15 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        heartbeat: {
+          "0%, 100%": { transform: "scaleY(1)", opacity: 1 },
+          "50%": { transform: "scaleY(2)", opacity: 0.7 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        heartbeat: "heartbeat 1s ease-in-out infinite",
       },
     },
   },
