@@ -55,14 +55,10 @@ class UsersController {
       if (!user) {
         return res.status(404).send("email incorrecto");
       }
-      console.log(password);
-
-      console.log(user.password);
       const authorization = await bcrypt.compare(password, user.password);
-      console.log(authorization);
-
+      const id = user._id;
       if (await bcrypt.compare(password, user.password)) {
-        const token = jwt.sign({ email }, jwtKey, {
+        const token = jwt.sign({email, id}, jwtKey, {
           expiresIn: "24h",
         });
 

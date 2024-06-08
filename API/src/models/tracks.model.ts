@@ -1,21 +1,21 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 import validator from 'validator';
+import genrerModel from './genrer.model';
+
+const genrerSubSchema = new  Schema({
+	name: String,
+	id: {type: mongoose.Schema.Types.ObjectId, ref: genrerModel}
+}, {'_id': false}); 
+
 const soundtrackSchema = new mongoose.Schema({
     title:{
         type: String,
-        minLenght: 5,
-        maxLength: 20,
         required: true
     },
-    genre:{
-        type: String,
-        minLenght: 5,
-        maxLength: 20,
-        required: true,
-    },
+    genrer:{type: genrerSubSchema},
     user:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "users",
         required: true
     },
     url:{
@@ -26,10 +26,7 @@ const soundtrackSchema = new mongoose.Schema({
             message: 'Invalid URL'
         }
     },
-    likes:{
-        type: Number,
-        min: 0
-    },
+    likes:[{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }],
     image:{
         type: String,
         required: true,
@@ -38,10 +35,15 @@ const soundtrackSchema = new mongoose.Schema({
             message: 'Invalid URL'
         }
     },
-    releaseAt:{
+    releaseDate:{
         type: Date,
         default: Date.now()
-    }
+    },
+    album:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "albums",
+        required: false
+    },
 })
 soundtrackSchema.set("toJSON", {
     transform: (document, returnedObject) => {
