@@ -1,4 +1,4 @@
-import React from "react";
+
 import CardTend from "../common/CardTend";
 import punk from "../../assets/img/punkmylife.png";
 import brave from "../../assets/img/braveoldmen.png";
