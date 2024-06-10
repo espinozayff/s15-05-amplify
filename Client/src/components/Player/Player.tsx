@@ -121,7 +121,7 @@ function Player(): JSX.Element | null {
   }
 
   return (
-    <div className="fixed bottom-0 slide inset-x-0 z-30 bg-black/60 backdrop-blur-sm block text-white w-full mx-auto accent-yellow-400">
+    <div className="fixed bottom-0 inset-x-0 z-30 bg-black/60 backdrop-blur-sm block text-white w-full mx-auto accent-yellow-400">
       <div className="flex justify-between items-center md:w-[95%] mx-auto max-md:flex-wrap max-md:pb-2.5">
         <Controls
           isReady={isReady}
