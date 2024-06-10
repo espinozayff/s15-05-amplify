@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #121212;
+}
 @layer utilities {
   .progress-bar-container {
     position: relative;
@@ -100,4 +103,8 @@
       opacity: 1;
     }
   }
+}
+
+body {
+  background-color: #09090b;
 }

@@ -5,6 +5,7 @@ Crea un archivo `.env` con las siguientes constantes, donde:
 - `PORT` : es el puerto donde se ejecutará tu servidor.
 - `DB` : es la URI de la base de datos de Mongo.
 - `JWT_SECRET` : es la clave secreta utilizada para JWT.
+- `JWT_KEY` : es la clave secreta para JWT que se usa para verificar el token.
 - `SECRET`: es el secreto de la sesión.
 - `CLOUDINARY_NAME`
 - `CLOUDINARY_API_KEY`
@@ -30,6 +31,16 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 | favorites   | array[ObjectId] | false     |
 | events      | array[ObjectId] | false     |
 
+#### Rutas de Usuarios
+
+| Método | Ruta       | Descripción                       | Parámetros en el cuerpo          | Parámetros en la URL |
+|--------|------------|-----------------------------------|----------------------------------|----------------------|
+| POST   | http:/localhost:PORT/api/users     | Crea un usuario           | `username`, `email`, `password`  |                      |
+| GET    | http:/localhost:PORT/api/users     | Obtener todos los usuarios        |                                  |                      |
+| GET    | http:/localhost:PORT/api/users/:id | Obtener usuario por ID         |                                  | `id`                 |
+| PUT    | http:/localhost:PORT/api/users/:id | Actualizar usuario por ID      | `username`, `email`, `password`  | `id`                 |
+| DELETE | http:/localhost:PORT/api/users/:id | Eliminar usuario por ID        |                                  | `id`                 |
+
 ### Música
 
 #### Esquema de Música
@@ -43,6 +54,17 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 | Likes   | array[] | false     |
 | image   | string  | false     |
 | date    | date    | true      |
+
+#### Rutas de Música
+
+| Método | Ruta       | Descripción                       | Parámetros en el cuerpo       | Parámetros en la URL |
+|--------|------------|-----------------------------------|-------------------------------|----------------------|
+| POST   | http:/localhost:PORT/api/tracks     | Crea una canción           | `title`, `genre`, `id_user`, `URL`, `date` |                      |
+| GET    | http:/localhost:PORT/api/tracks     | Obtener canción por ID       |                               |                      |
+| GET    | http:/localhost:PORT/api/tracks/:id | Obtener canción por ID        |                               | `id`                 |
+| PUT    | http:/localhost:PORT/api/tracks/:id | Actualizasr canción por ID     | `title`, `genre`, `URL`, `image`, `date` | `id`                 |
+| DELETE | http:/localhost:PORT/api/tracks/:id | Eliminar canción por ID       |                               | `id`                 |
+
 
 ### Lista de Reproducción
 
@@ -64,6 +86,17 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 | genre   | string          | true      |
 | Music   | array[ObjectId] | true      |
 | id_user | string          | true      |
+
+#### Rutas de Álbum de Música
+
+| Método | Ruta           | Descripción                       | Parámetros en el cuerpo  | Parámetros en la URL |
+|--------|----------------|-----------------------------------|--------------------------|----------------------|
+| POST   | http:/localhost:PORT/api/albums        | Crear un nuevo álbum de música    | `Name`, `genre`, `Music`, `id_user` |                      |
+| GET    | http:/localhost:PORT/api/albums        | Obtener todos los álbumes         |                          |                      |
+| GET    | http:/localhost:PORT/api/albums/:id    | Obtener un álbum por ID           |                          | `id`                 |
+| PUT    | http:/localhost:PORT/api/albums/:id    | Actualizar un álbum por ID        | `Name`, `genre`, `Music` | `id`                 |
+| DELETE | http:/localhost:PORT/api/albums/:id    | Eliminar un álbum por ID          |                          | `id`                 |
+
 
 ### Eventos
 

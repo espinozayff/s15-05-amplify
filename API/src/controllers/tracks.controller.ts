@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getAllTracks, createTrack } from "../services/tracks.services";
+import { getAllTracks, createTrack, getTrackLikes as getTrackLikesService } from "../services/tracks.services";
 
 export const getTracks = async (req: Request, res: Response) => {
     try {
@@ -35,5 +35,17 @@ export const postTrack = async (req: Request, res: Response) => {
     } catch (err) {
         console.log(err);
         res.status(500).send({ error: err });
+    }
+};
+
+export const getTrackLikes = async (req: Request, res: Response) => {
+    const { tid } = req.params;
+
+    try {
+        const trackLikes = await getTrackLikesService(tid);
+        return res.status(200).json({ likes: trackLikes });
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send({ error: err });
     }
 };
