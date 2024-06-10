@@ -1,53 +1,92 @@
 import Soundtrack from "../models/tracks.model";
-import { UploadFile, TrackBody } from "../types";
-import { v2 as cloudinary } from "cloudinary";
-import { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, CLOUDINARY_NAME } from "../utils/constant";
+import cloudinary from "../config/cloudinary.config";
+import { trackInterface, UploadFile } from "../intarfaces/tracks.interface";
+import genrerModel from "../models/genrer.model";
+import genrerServices from "./genrer.services";
 
-cloudinary.config({
-  cloud_name: CLOUDINARY_NAME,
-  api_key: CLOUDINARY_API_KEY,
-  api_secret: CLOUDINARY_API_SECRET,
-});
-
-export const getAllTracks = async () => {
+class trackService {
+  async getTracks(query: any): Promise<any[]> {
     try {
-        const tracks = await Soundtrack.find({});
-        return tracks;
-    } catch (err) {
-        console.log(err);
+      const tracks = await Soundtrack.find(query).populate('user').populate('likes').populate('album');
+      if (!tracks) throw new Error("Canciones no encontradas");
+      return tracks;
+    } catch (error) {
+      throw new Error(
+        `Error al obtener las canciones: ${(error as Error).message}`
+      );
     }
-};
+  }
 
-export const createTrack = async (file:UploadFile, body:TrackBody) => {
+  async getTrackById(id: any): Promise<any> {
     try {
-        const { title, genre } = body;
-        const response = await cloudinary.uploader.upload(file.path, {
-            resource_type: "video", // Specify resource type as video for audio files
-        });
-
-        const newTrack = new Soundtrack({
-            title,
-            genre,
-            user: "6655f0c83da05af9e41fa415",
-            url: response.secure_url,
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Lockheed_SR-71_Blackbird.jpg/765px-Lockheed_SR-71_Blackbird.jpg"
-        });
-
-        const savedTrack = await newTrack.save();
-        return savedTrack;
-    } catch (err) {
-        console.log(err);
+      const tracks = await Soundtrack.findById(id).populate('user').populate('likes').populate('album');
+      if (!tracks) throw new Error("Cancion no encontradas");
+      return tracks;
+    } catch (error) {
+      throw new Error(
+        `Error al obtener la cancion: ${(error as Error).message}`
+      );
     }
-};
+  }
 
-export const getTrackLikes = async (tid: string) => {
+  async createTrack(songFile: UploadFile, body: trackInterface, imageFile:any): Promise<any> {
     try {
-        const track = await Soundtrack.findById(tid).populate('likes');
-        if (!track) {
-            throw new Error("Track not found");
-        }
-        return track.likes.length;
-    } catch (err) {
-        throw err;
+      const { title, genrer, user, album } = body;
+
+      const response = await cloudinary.uploader.upload(songFile.path, {
+        resource_type: "video",
+      });
+
+      const imageStore = await cloudinary.uploader.upload(imageFile.path,{
+        resource_type: "image",
+      })
+
+      const genrerUpload = await genrerModel.findById(genrer!.id);
+      if (!genrerUpload) throw new Error("Género no encontrado");
+      const newTrack = new Soundtrack({
+        title,
+        genrer,
+        user,
+        url: response.secure_url,
+        image: imageStore.secure_url,
+        album
+      });
+      
+      const savedTrack = await newTrack.save();
+      const updateGenrer = await genrerServices.updateGenrer(genrer!.id, savedTrack.id);
+      return {msg:'Canción creada exitosamente'};
+    } catch (error) {
+      throw new Error(`Error al crear la canción: ${(error as Error).message}`);
     }
-};
+  }
+
+  async updateTrack(id:string, data:any): Promise<any> {
+    try {
+      if(data.image){
+        const image = data.image;
+        const imageStore = await cloudinary.uploader.upload(image.path,{
+          resource_type: "image",
+        })
+        data.image = imageStore.secure_url;
+      }
+      const tracks = await Soundtrack.findById(id);
+      if (!tracks) throw new Error("Cancion no encontradas");
+      const updTrasck = await Soundtrack.findByIdAndUpdate(id, data, { new: true });
+      return {msg: 'Canción actualizada'};
+    } catch (error) {
+      throw new Error(`Error al actualizar la canción: ${(error as Error).message}`);
+    }
+  }
+
+  async deleteTrack(id:string):Promise<any>{
+    try {
+      const tracks = await Soundtrack.findById(id);
+      if (!tracks) throw new Error("Cancion no encontradas");
+      const delTrack = await Soundtrack.findByIdAndDelete(id);
+      return {msg: 'Canción eliminada'};
+    } catch (error) {
+      throw new Error(`Error al eliminar la canción: ${(error as Error).message}`);
+    }
+  }
+}
+export default new trackService();

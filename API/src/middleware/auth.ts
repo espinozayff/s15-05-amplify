@@ -9,12 +9,13 @@ if (!JWT_KEY) {
 }
 
 interface DecodedToken {
+  id: string
   email: string;
   iat: number;
   exp: number;
 }
 
-interface CustomRequest extends Request {
+export interface CustomRequest extends Request {
   user?: DecodedToken;
 }
 

@@ -63,10 +63,10 @@ class UsersController {
       }
 
       const authorization = await bcrypt.compare(password, user.password);
+      const id = user._id;
+      if (await bcrypt.compare(password, user.password)) {
+        const token = jwt.sign({email, id}, jwtKey, {
 
-      if (authorization) {
-
-        const token = jwt.sign({ email }, jwtKey, {
           expiresIn: "24h",
         });
 

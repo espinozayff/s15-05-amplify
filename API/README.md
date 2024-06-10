@@ -59,10 +59,10 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 
 | Método | Ruta       | Descripción                       | Parámetros en el cuerpo       | Parámetros en la URL |
 |--------|------------|-----------------------------------|-------------------------------|----------------------|
-| POST   | http:/localhost:PORT/api/tracks     | Crea una canción           | `title`, `genre`, `id_user`, `URL`, `date` |                      |
-| GET    | http:/localhost:PORT/api/tracks     | Obtener canción por ID       |                               |                      |
+| POST   | http:/localhost:PORT/api/tracks     | Crea una canción           | `title`, `genre: {name, id}`, `id_user`, `songData`, `date`, `image` |                      |
+| GET    | http:/localhost:PORT/api/tracks     | Obtener canción por ID       |       `query: Busqueda por parametro `                        |                      |
 | GET    | http:/localhost:PORT/api/tracks/:id | Obtener canción por ID        |                               | `id`                 |
-| PUT    | http:/localhost:PORT/api/tracks/:id | Actualizasr canción por ID     | `title`, `genre`, `URL`, `image`, `date` | `id`                 |
+| PUT    | http:/localhost:PORT/api/tracks/:id | Actualizasr canción por ID     | `title`, `genre: {name, id}`, `image`, `date` | `id`                 |
 | DELETE | http:/localhost:PORT/api/tracks/:id | Eliminar canción por ID       |                               | `id`                 |
 
 
@@ -109,3 +109,24 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 | id_user | string | true      |
 | date    | date   | true      |
 | image   | string | false     |
+
+### Genero
+
+#### Esquema de Genero
+
+| Clave   | Tipo   | Requerido |
+| :------ | :----- | :-------- |
+| name   | string | true      |
+| soundTracks    | array[ObjectId] | false      |
+| image   | string | false     |
+
+#### Rutas de Genero
+
+| Método | Ruta       | Descripción                       | Parámetros en el cuerpo       | Parámetros en la URL |
+|--------|------------|-----------------------------------|-------------------------------|----------------------|
+| POST   | http:/localhost:PORT/api/genrer     | Crea una canción           | `name`, `image` |                      |
+| GET    | http:/localhost:PORT/api/genrer     | Obtener canción por ID       |                               |                      |
+| GET    | http:/localhost:PORT/api/genrer/:id | Obtener canción por ID        |                               | `id`                 |
+| PUT    | http:/localhost:PORT/api/genrer/:id | Actualizasr canción por ID     | `soundTracks` | `id`                 |
+| PUT    | http:/localhost:PORT/api/genrer/image/:id | Actualizasr canción por ID     |`image` | `id`                 |
+| DELETE | http:/localhost:PORT/api/genrer/:id | Eliminar canción por ID       |                               | `id`                 |
