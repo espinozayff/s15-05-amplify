@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "genre": "Punk Rock",
+    "title": "Punk my life",
+    "author": "Mixamino",
+    "image": "punk"
+  },
+  {
+    "id": 2,
+    "genre": "Country",
+    "title": "COUNTY’S BRAVE OLD MEN",
+    "author": "Buck Rogers",
+    "image": "brave"
+  },
+  {
+    "id": 3,
+    "genre": "Pop",
+    "title": "TI PREGO",
+    "author": "Valeria Massa",
+    "image": "prego"
+  },
+  {
+    "id": 4,
+    "genre": "Mundo",
+    "title": "OHIYO!",
+    "author": "Kimo Kawamura",
+    "image": "ohiyo"
+  },
+  {
+    "id": 5,
+    "genre": "Electro pop",
+    "title": "IT WAS LOVE",
+    "author": "Amanpour",
+    "image": "mylove"
+  },
+  {
+    "id": 6,
+    "genre": "Independent",
+    "title": "Punk my life",
+    "author": "Mixamino",
+    "image": "rome"
+  },
+  {
+    "id": 7,
+    "genre": "Country",
+    "title": "COUNTY’S BRAVE OLD MEN",
+    "author": "Buck Rogers",
+    "image": "hungover"
+  },
+  {
+    "id": 8,
+    "genre": "Pop",
+    "title": "TI PREGO",
+    "author": "Valeria Massa",
+    "image": "maria"
+  },
+  {
+    "id": 9,
+    "genre": "Mundo",
+    "title": "OHIYO!",
+    "author": "Kimo Kawamura",
+    "image": "ohiyo"
+  },
+  {
+    "id": 10,
+    "genre": "Electro pop",
+    "title": "IT WAS LOVE",
+    "author": "Amanpour",
+    "image": "mylove"
+  }
+]

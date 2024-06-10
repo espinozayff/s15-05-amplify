@@ -1,3 +1,4 @@
+
 import CardTend from "../common/CardTend";
 import punk from "../../assets/img/punkmylife.png";
 import brave from "../../assets/img/braveoldmen.png";
@@ -7,86 +8,38 @@ import mylove from "../../assets/img/itwasmylove.png";
 import rome from "../../assets/img/rome.png";
 import hungover from "../../assets/img/hungover.png";
 import maria from "../../assets/img/maria.png";
-import onei from "../../assets/img/onei.png";
+import { TrendData, ImageMap } from "./Trends.types";
+import trendData from "../../data/trendsData.json";
 
-import { TrendData } from "./Trends.types";
+const imageMap: ImageMap = {
+  punk,
+  brave,
+  prego,
+  ohiyo,
+  mylove,
+  rome,
+  hungover,
+  maria,
+};
 
 export default function Trends() {
-  const data: TrendData[] = [
-    {
-      genre: "Punk Rock",
-      title: "Punk my life",
-      author: "Mixamino",
-      image: punk,
-    },
-    {
-      genre: "Country",
-      title: "COUNTY’S BRAVE OLD MEN",
-      author: "Buck Rogers",
-      image: brave,
-    },
-    {
-      genre: "Pop",
-      title: "TI PREGO",
-      author: "Valeria Massa",
-      image: prego,
-    },
-    {
-      genre: "Mundo",
-      title: "OHIYO!",
-      author: "Kimo Kawamura",
-      image: ohiyo,
-    },
-    {
-      genre: "Electro pop",
-      title: "IT WAS LOVE",
-      author: "Amanpour",
-      image: mylove,
-    },
-    {
-      genre: "Independent",
-      title: "Punk my life",
-      author: "Mixamino",
-      image: rome,
-    },
-    {
-      genre: "Country",
-      title: "COUNTY’S BRAVE OLD MEN",
-      author: "Buck Rogers",
-      image: hungover,
-    },
-    {
-      genre: "Pop",
-      title: "TI PREGO",
-      author: "Valeria Massa",
-      image: maria,
-    },
-    {
-      genre: "Mundo",
-      title: "OHIYO!",
-      author: "Kimo Kawamura",
-      image: ohiyo,
-    },
-    {
-      genre: "Electro pop",
-      title: "IT WAS LOVE",
-      author: "Amanpour",
-      image: mylove,
-    },
-  ];
+  const data: TrendData[] = trendData.map((item: TrendData) => ({
+    ...item,
+    image: imageMap[item.image],
+  }));
 
   return (
     <div className="flex-col bg-[#000000]">
       <div className="flex justify-between items-baseline">
         <h3 className="font-medium text-4xl text-[#666666] mb-2 ml-2">Tendencias</h3>
-        <p className="font-normal text-white cursor-pointer ">
+        <p className="font-normal text-white cursor-pointer">
           <a href="">Ver Todo</a>
         </p>
       </div>
-      <div className=" gap-1 hidden md:flex flex-wrap">
-        {data.map((item, index) => (
+      <div className="gap-1 hidden md:flex flex-wrap">
+        {data.map((item) => (
           <CardTend
-            key={index}
+            id={item.id}
             genre={item.genre}
             title={item.title}
             author={item.author}
@@ -95,9 +48,9 @@ export default function Trends() {
         ))}
       </div>
       <div className="flex md:hidden overflow-x-scroll">
-        {data.map((item, index) => (
+        {data.map((item) => (
           <CardTend
-            key={index}
+            id={item.id}
             genre={item.genre}
             title={item.title}
             author={item.author}
