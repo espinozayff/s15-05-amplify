@@ -6,6 +6,7 @@ interface ProgressCSSProps extends CSSProperties {
 }
 
 interface AudioProgressBarProps extends ComponentPropsWithoutRef<"input"> {
+  isReady: boolean;
   children: ReactNode;
   duration: number;
   currentProgress: number;
@@ -13,18 +14,18 @@ interface AudioProgressBarProps extends ComponentPropsWithoutRef<"input"> {
 }
 
 function ProgressBar(props: AudioProgressBarProps): JSX.Element {
-  const { duration, currentProgress, album, children, ...rest } = props;
+  const { duration, currentProgress, album, children, isReady, ...rest } = props;
 
   const progressBarWidth = isNaN(currentProgress / duration)
-    ? 1
+    ? 0.1
     : (currentProgress / duration) * 100;
 
   const progressStyles: ProgressCSSProps = {
-    "--progress-width": Math.round(progressBarWidth || 1),
+    "--progress-width": Math.round(progressBarWidth || 0.1),
   };
 
   return (
-    <div className="w-full md:max-w-[50%] mx-auto md:space-y-3.5 md:pt-3.5 pb-3.5 max-md:-mt-1 max-md:order-0">
+    <div className="w-full md:max-w-[50%] mx-auto md:space-y-3.5 py-3 max-md:-mt-1 max-md:order-0">
       <small className="block text-xs text-center max-md:hidden">
         Album:
         <b>{album}</b>
@@ -34,18 +35,21 @@ function ProgressBar(props: AudioProgressBarProps): JSX.Element {
           {formatDuration(currentProgress)}
         </span>
         {children}
-        <label htmlFor="musicProgress" className="sr-only md:hidden"></label>
-        <input
-          id="musicProgress"
-          className="progress-bar w-full cursor-pointer appearance-none h-1 md:hidden"
-          type="range"
-          name="musicProgress"
-          style={progressStyles}
-          min={0}
-          max={duration ? duration : `${duration}`}
-          value={currentProgress}
-          {...rest}
-        />
+        <div className="progress-bar-container md:hidden pb-2">
+          <label htmlFor="musicProgress" className="sr-only"></label>
+          <input
+            id="musicProgress"
+            className="progress-bar w-full cursor-pointer appearance-none h-1"
+            type="range"
+            name="musicProgress"
+            style={progressStyles}
+            min={0}
+            max={duration ? duration : `${duration}`}
+            value={currentProgress}
+            {...rest}
+          />
+          {isReady ? <div className="progress-bar-fill" style={progressStyles}></div> : null}
+        </div>
         <span className="w-[5ch] hidden md:block text-center">{formatDuration(duration || 0)}</span>
       </div>
     </div>
