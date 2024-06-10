@@ -30,6 +30,17 @@
     "npm-run-all": "^4.1.5"
   },
   "dependencies": {
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "jsonwebtoken": "^9.0.2"
+=======
     "lucide-react": "^0.381.0"
+>>>>>>> b8052b997090ed582598174cd125791f30d1cfdc
+=======
+
+    "jsonwebtoken": "^9.0.2"
+    "lucide-react": "^0.381.0"
+
+>>>>>>> ec1898b89263973904fd4ca62a338834f083142d
   }
 }
