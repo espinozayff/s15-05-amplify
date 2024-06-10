@@ -19,7 +19,7 @@ export default function Album() {
           <Sidebar />
         </div>
       </div>
-      <div className="lg:w-8/12 text-white lg:ml-auto">
+      <div className="lg:w-8/12 text-white lg:ml-auto h-screen">
         <div className="flex justify-between items-center">
           <div>
             <h2 className="text-4xl font-bold">{title}</h2>
