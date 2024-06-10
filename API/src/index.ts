@@ -1,6 +1,7 @@
 import app from './app'
+import "dotenv/config"
 import './database'
 
-app.listen(8080, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log('server running on port 8080'); 
 })

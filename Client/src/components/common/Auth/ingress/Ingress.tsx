@@ -1,3 +1,4 @@
+import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -7,7 +8,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-
 } from "components/common/shadcn/dialog"; // Asegúrate de que esta ruta es correcta
 import TextField from "../../TextField";
 import { Button } from "../../shadcn/button";
@@ -46,12 +46,16 @@ const LoginDialog: React.FC<LoginDialogProps> = ({
   }
 
   return (
-    <Dialog open={openLogin} onOpenChange={onClose} >
+    <Dialog open={openLogin} onOpenChange={onClose}>
       {/* <DialogTrigger>Open</DialogTrigger> */}
       <DialogContent className="bg-[#121212]">
         <DialogHeader>
-          <DialogTitle className="dark:text-white">Ingreso</DialogTitle>
-          <DialogDescription className="text-4xl dark:text-white">Bienvenido Nuevamente</DialogDescription>
+          <DialogTitle className="text-sm font-medium text-white dark:text-white">
+            Ingreso
+          </DialogTitle>
+          <DialogDescription className="text-4xl text-white dark:text-white">
+            Bienvenido Nuevamente
+          </DialogDescription>
         </DialogHeader>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -73,12 +77,17 @@ const LoginDialog: React.FC<LoginDialogProps> = ({
                 ¿Olvidaste tu contraseña?
               </a>
             </div>
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full bg-black text-white hover:text-white
+               hover:border-black hover:bg-black transition duration-300"
+            >
               Iniciar Sesión
             </Button>
             <Button
               type="button"
-              className="w-full mt-2 text-white hover:bg-gray-900 transition duration-300"
+              className="w-full mt-2 text-black hover:text-white
+               hover:border-black hover:bg-black transition duration-300"
               variant="outline"
               onClick={handleRegister}
             >

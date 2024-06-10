@@ -1,39 +1,84 @@
 import { Request, Response } from "express";
-import { getAllTracks, createTrack } from "../services/tracks.services";
 
-export const getTracks = async (req: Request, res: Response) => {
+import trackService from "../services/tracks.services";
+import { httpResponse } from "../utils/EnumsError";
+import { CustomRequest } from "../middleware/auth"; 
+
+const HttpResponse = new httpResponse();
+
+class tracksController {
+  async getAllTracks(req: Request, res: Response) {
     try {
-        const tracks = await getAllTracks();
-
-        if (!tracks || tracks.length === 0) {
-            console.log("No tracks found in the database.");
-            return res.status(404).json({ message: "No tracks found." });
-        }
-
-        return res.status(200).json({ Tracks: tracks });
-    } catch (err) {
-        res.status(500).send({ error: err });
-        console.log(err);
+      const { query = {} } = req;
+      const tracks = await trackService.getTracks(query);
+      if (!tracks) return HttpResponse.NotFound(res, "No existe ningun dato");
+      return HttpResponse.OK(res, tracks);
+    } catch (error) {
+      return HttpResponse.Error(res, (error as Error).message);
     }
-};
+  }
 
-export const postTrack = async (req: Request, res: Response) => {
-    const { file } = req;
-    const { title, genre } = req.body;
-
-    if (!file) {
-        return res.status(400).send({ error: "No file uploaded" });
-    }
-
+  async getTrackById(req: Request, res: Response) {
     try {
-        const savedTrack = await createTrack(file, req.body);
-
-        res.status(201).json({
-            message: "Track created!",
-            savedTrack
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).send({ error: err });
+      const { id } = req.params;
+      const track = await trackService.getTrackById(id);
+      if (!track) return HttpResponse.NotFound(res, "No existe ningun dato");
+      return HttpResponse.OK(res, track);
+    } catch (error) {
+      return HttpResponse.Error(res, (error as Error).message);
     }
-};
+  }
+
+  async createTrack(req: CustomRequest, res: Response) {
+    try {
+      const user = req.user!.id
+      const { title, genre, album } = req.body;
+      const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+
+      if (!files.songData || !files.image) {
+        return HttpResponse.NotFound(
+          res,
+          "La canción y la imagen son obligatorias"
+        );
+      }
+      
+      const songFile = files.songData[0];
+      const imageFile = files.image[0];
+      const body = { title, genre, album, user };
+      const savedTrack = await trackService.createTrack(
+        songFile,
+        body,
+        imageFile
+      );
+      return HttpResponse.OK(res, savedTrack);
+    } catch (error) {
+      console.log(error);
+
+      return HttpResponse.Error(res, (error as Error).message);
+    }
+  }
+
+  async updateTrack(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const data = req.body;
+      const track = await trackService.updateTrack(id, data);
+      return HttpResponse.OK(res, track);
+    } catch (error) {
+      console.log(error);
+      return HttpResponse.Error(res, (error as Error).message);
+    }
+  }
+
+  async daleteTrack(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const track = await trackService.deleteTrack(id);
+      return HttpResponse.OK(res, track);
+    } catch (error) {
+      return HttpResponse.Error(res, (error as Error).message);
+    }
+  }
+}
+export default new tracksController();
+

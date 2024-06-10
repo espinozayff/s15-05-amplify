@@ -7,7 +7,7 @@ import TitleText from "../TitleText";
 function TrendingGenres(): JSX.Element {
   return (
     <div className="w-full my-10">
-      <div className="flex justify-between items-end mx-8">
+      <div className="flex justify-between items-end lg:mx-8 mx-4">
         <TitleText text="Top Géneros" type="secondary" as="h2" />
         <Link to={"/#"}>
           <button className="text-white">Ver todo</button>
