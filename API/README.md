@@ -5,6 +5,7 @@ Crea un archivo `.env` con las siguientes constantes, donde:
 - `PORT` : es el puerto donde se ejecutará tu servidor.
 - `DB` : es la URI de la base de datos de Mongo.
 - `JWT_SECRET` : es la clave secreta utilizada para JWT.
+- `JWT_KEY` : es la clave secreta para JWT que se usa para verificar el token.
 - `SECRET`: es el secreto de la sesión.
 - `CLOUDINARY_NAME`
 - `CLOUDINARY_API_KEY`

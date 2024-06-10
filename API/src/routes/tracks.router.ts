@@ -1,8 +1,9 @@
-import {Router} from "express";
+import { Router } from "express";
 import multer from "multer";
 import tracksController from "../controllers/tracks.controller";
 import { trackValidator } from "../middleware/trauck.validator";
 import verifyToken from "../middleware/auth";
+
 
 const upload = multer({ dest: "uploads/" });
 const router = Router();
@@ -14,3 +15,4 @@ router.put("/:id", verifyToken, upload.single('image'), tracksController.updateT
 router.delete("/:id", verifyToken, tracksController.daleteTrack);
 
 export default router;
+

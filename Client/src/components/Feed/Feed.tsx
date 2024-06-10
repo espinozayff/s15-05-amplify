@@ -6,7 +6,7 @@ import Carousel from "../common/Carrousel";
 
 function Feed(): JSX.Element {
   return (
-    <div className="container mx-auto flex flex-col bg-[#121212] px-0 mb-20">
+    <div className="container mx-auto flex flex-col bg-[#121212] px-0">
       {/* Carousel */}
       <Carousel />
 
@@ -19,7 +19,7 @@ function Feed(): JSX.Element {
           <Trends />
         </div>
       </div>
-      {/** Top Géneros */}
+      {/** Top Géneros*/}
       <TrendingGenres />
     </div>
   );

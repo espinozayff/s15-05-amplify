@@ -14,14 +14,16 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ placeholder, value, onChange, type, label, description, ...props }, ref) => {
     return (
       <FormItem>
-        {label && <FormLabel className="text-[#111928] font-medium text-sm">{label}</FormLabel>}
+        {label && (
+          <FormLabel className="dark:text-white text-white font-medium text-sm">{label}</FormLabel>
+        )}
         <FormControl>
           <Input
             placeholder={placeholder}
             value={value}
             onChange={onChange}
             type={type}
-            className="py-6 px-4 rounded-[10px] border-black border-[1px] focus-visible:ring-transparent text-[#9CA3AF]"
+            className="py-6 dark:bg-white px-4 rounded-[10px] border-black border-[1px] focus-visible:ring-transparent text-black"
             ref={ref}
             {...props}
           />

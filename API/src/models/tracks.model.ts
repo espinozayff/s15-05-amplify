@@ -45,14 +45,15 @@ const soundtrackSchema = new mongoose.Schema({
         required: false
     },
 })
+
 soundtrackSchema.set("toJSON", {
-    transform: (document, returnedObject) => {
+  transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
     delete returnedObject.__v;
-    },
+  },
 });
 
-const soundtrack = mongoose.model("Soundtrack", soundtrackSchema);
+const Soundtrack = mongoose.model("Soundtrack", soundtrackSchema);
 
-export default soundtrack;
+export default Soundtrack;
