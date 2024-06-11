@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../../components/common/Logo/Logo";
 import SearchBar from "../../../components/common/SearchBar/SearchBar";
 import ButtonEdit from "../../../components/common/ButtonEdit/ButtonEdit";
+import { Link } from "react-router-dom";
 
 const NavBar: React.FC = () => {
   const [menuAbierto, setMenuAbierto] = useState<boolean>(false);
@@ -50,9 +51,9 @@ const NavBar: React.FC = () => {
     <div className="relative">
       <div className="flex items-center justify-between text-white px-5 py-2 bg-[#121212] border-none">
         <div className="flex items-center">
-          <a href="/">
+        <Link to="/">
             <Logo />
-          </a>
+          </Link>
         </div>
         <div className="flex items-center justify-center flex-1">
           <SearchBar />
