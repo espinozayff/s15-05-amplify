@@ -7,6 +7,7 @@ import {
   readOne,
   update,
   destroy,
+  like
 } from "../controllers/user.controller";
 
 import { verifyToken, destroyToken} from "../middleware/auth";
@@ -21,5 +22,6 @@ usersRouter.get("/", verifyToken, read);
 usersRouter.get("/:uid", readOne);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
+usersRouter.put("/likes/:tid", verifyToken, like)
 
 export default usersRouter;

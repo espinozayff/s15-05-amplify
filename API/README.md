@@ -59,10 +59,10 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 
 | Método | Ruta       | Descripción                       | Parámetros en el cuerpo       | Parámetros en la URL |
 |--------|------------|-----------------------------------|-------------------------------|----------------------|
-| POST   | http:/localhost:PORT/api/tracks     | Crea una canción           | `title`, `genre`, `id_user`, `URL`, `date` |                      |
-| GET    | http:/localhost:PORT/api/tracks     | Obtener canción por ID       |                               |                      |
+| POST   | http:/localhost:PORT/api/tracks     | Crea una canción           | `title`, `genre: {name, id}`, `id_user`, `songData`, `date`, `image` |                      |
+| GET    | http:/localhost:PORT/api/tracks     | Obtener canción por ID       |       `query: Busqueda por parametro `                        |                      |
 | GET    | http:/localhost:PORT/api/tracks/:id | Obtener canción por ID        |                               | `id`                 |
-| PUT    | http:/localhost:PORT/api/tracks/:id | Actualizasr canción por ID     | `title`, `genre`, `URL`, `image`, `date` | `id`                 |
+| PUT    | http:/localhost:PORT/api/tracks/:id | Actualizasr canción por ID     | `title`, `genre: {name, id}`, `image`, `date` | `id`                 |
 | DELETE | http:/localhost:PORT/api/tracks/:id | Eliminar canción por ID       |                               | `id`                 |
 
 ### Álbums de Música
@@ -87,3 +87,4 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 | GET    | http:/localhost:PORT/api/albums/:id    | Obtener un álbum por ID           |                          | `id`                 |
 | PUT    | http:/localhost:PORT/api/albums/:id    | Actualizar un álbum por ID        | `title?`, `genre?`, `image?`, `songs?`, `username` | `id`                 |
 | DELETE | http:/localhost:PORT/api/albums        | Eliminar un álbum por ID          | `title`, `username`      |                      |
+

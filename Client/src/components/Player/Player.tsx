@@ -1,37 +1,12 @@
 import { useEffect, useRef, useState, JSX, useCallback } from "react";
-import { ITrack } from "./Player.types";
 import { Controls, ProgressBar, Tracks } from "./index";
 import { useWavesurfer } from "@wavesurfer/react";
+import usePlayerStore from "../../store/playerStore";
 
-const defaultValues = [
-  {
-    title: "Chords of Life",
-    artist: "Madza",
-    album: "Album Madza",
-    cover:
-      "https://images.theconversation.com/files/512871/original/file-20230301-26-ryosag.jpg?ixlib=rb-4.1.0&rect=97%2C79%2C5799%2C5817&q=45&auto=format&w=926&fit=clip",
-    url: "https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3",
-  },
-  {
-    title: "Late Night Drive",
-    artist: "Madza 2",
-    album: "Album Madza 2",
-    cover: "https://upload.wikimedia.org/wikipedia/en/e/e5/In_Utero_%28Nirvana%29_album_cover.jpg",
-    url: "https://audioplayer.madza.dev/Madza-Late_Night_Drive.mp3",
-  },
-  {
-    title: "Persistence",
-    artist: "Madza 3",
-    album: "Album Madza 3",
-    cover: "https://ecx.images-amazon.com/images/I/51vrW3uNCJL._SL500_.jpg",
-    url: "https://audioplayer.madza.dev/Madza-Persistence.mp3",
-  },
-];
-
-function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element | null {
-  const [trackIndex, setTrackIndex] = useState<number>(0);
+function Player(): JSX.Element | null {
+  const { tracks, currentIndex, setIndex } = usePlayerStore();
   const [isTrackLoading, setIsTrackLoading] = useState<boolean>(false);
-  const currentTrack = tracks[trackIndex] || null;
+  const currentTrack = tracks[currentIndex] || null;
   const wsContainer = useRef(null);
   const userInteracted = useRef<boolean>(false);
   const {
@@ -55,7 +30,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
   });
 
   const changeSong = (index: number): void => {
-    setTrackIndex(index);
+    setIndex(index);
   };
 
   const onPlay = async (): Promise<void> => {
@@ -71,13 +46,13 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
 
   const onPrevSong = useCallback(() => {
     userInteracted.current = true;
-    setTrackIndex((prevIndex) => (prevIndex - 1 + tracks.length) % tracks.length);
-  }, [tracks]);
+    setIndex((currentIndex - 1 + tracks.length) % tracks.length);
+  }, [currentIndex, setIndex, tracks.length]);
 
   const onNextSong = useCallback(() => {
     userInteracted.current = true;
-    setTrackIndex((prevIndex) => (prevIndex + 1) % tracks.length);
-  }, [tracks]);
+    setIndex((currentIndex + 1) % tracks.length);
+  }, [currentIndex, setIndex, tracks.length]);
 
   const onScrub = (value: number): void => {
     if (ws) {
@@ -120,7 +95,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         artwork: [{ src: currentTrack?.cover, sizes: "256x256", type: "image/png" }],
       });
     }
-  }, [currentTrack, isPlaying, ws, isTrackLoading, trackIndex]);
+  }, [currentTrack, isPlaying, ws, isTrackLoading, currentIndex]);
 
   useEffect(() => {
     if (ws) {
@@ -146,7 +121,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
   }
 
   return (
-    <div className="fixed bottom-0 slide inset-x-0 z-30 bg-black/60 backdrop-blur-sm block text-white w-full mx-auto accent-yellow-400">
+    <div className="fixed bottom-0 inset-x-0 z-30 bg-black/60 backdrop-blur-sm block text-white w-full mx-auto accent-yellow-400">
       <div className="flex justify-between items-center md:w-[95%] mx-auto max-md:flex-wrap max-md:pb-2.5">
         <Controls
           isReady={isReady}
@@ -158,6 +133,7 @@ function Player({ tracks = defaultValues }: { tracks?: ITrack[] }): JSX.Element 
         />
 
         <ProgressBar
+          isReady={isReady}
           duration={ws?.getDuration() || 0}
           currentProgress={currentTime || 0}
           onChange={(e) => onScrub(+e.target.value)}

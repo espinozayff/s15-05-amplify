@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider as ReactRouterProvider } from "reac
 
 import { routes } from "config";
 import { Feed, Layout } from "components";
+import Album from "components/Album";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Feed />,
+      },
+      {
+        path: "album/:id",
+        element: <Album />,
       },
     ],
   },
