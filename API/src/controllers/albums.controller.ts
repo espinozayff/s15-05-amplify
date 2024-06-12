@@ -6,16 +6,12 @@ const responseHandler = new httpResponse();
 
 export const getAlbums = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        if(!req.body.title && !req.body.username){
-            return responseHandler.BAD_REQUEST_ERROR(res, 'No parameters for search');
+        const searchAlbum = await findAlbums(req.body)
+        if(searchAlbum?.length === 0 || !searchAlbum ){
+            return responseHandler.NotFound(res, 'Not found');
         } else {
-            const searchAlbum = await findAlbums(req.body)
-            if(searchAlbum?.length === 0 || !searchAlbum ){
-                return responseHandler.NotFound(res, 'Not found');
-            } else {
-                return responseHandler.OK(res, { message: 'Successful search', payload: searchAlbum });
-            }
-        }
+            return responseHandler.OK(res, { message: 'Successful search', payload: searchAlbum });
+        }         
     } catch (error) {
         next(error); 
     }
@@ -36,7 +32,8 @@ export const getAlbumById = async (req: Request, res: Response, next: NextFuncti
 }
 
 export const newAlbum = async (req: Request, res: Response, next: NextFunction) => {
-    const {title, genre, username, image, songs} = req.body
+    const {title, genre, username, songs} = req.body
+    const image = req.file
     try {
         if(!title || !genre || !username){
             return responseHandler.BAD_REQUEST_ERROR(res, 'Not all required fields provided')

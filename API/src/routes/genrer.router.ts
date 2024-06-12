@@ -2,7 +2,7 @@ import {Router} from "express";
 import multer from "multer";
 const router = Router();
 import genrerController from "../controllers/genrer.controller";
-import verifyToken from "../middleware/auth";
+import { verifyToken } from "../middleware/auth";
 
 const upload = multer({ dest: "uploads/" });
 

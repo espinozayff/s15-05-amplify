@@ -1,5 +1,6 @@
-import { Types, ObjectId } from "mongoose";
+import { Types, ObjectId, Document } from "mongoose";
 import { albumsModel } from "../models/albums.model";
+import cloudinary from "../config/cloudinary.config";
 import User from "../models/users.model";
 import soundtrack from "../models/tracks.model";
 
@@ -16,9 +17,30 @@ type albumModel = {
   uploadDate?: Date;
 };
 
+interface Owner {
+  _id: ObjectId;
+  username: string;
+}
+
+interface Song {
+  _id: ObjectId;
+  title: string;
+  url: string;
+}
+
+interface Album extends Document {
+  _id: ObjectId;
+  title: string;
+  owner: Owner;
+  songs: Song[];
+}
+
 export const findAlbums = async (data: searchParameters) => {
   if (!data.title && !data.username) {
-    return null;
+    const result = await albumsModel
+    .find()
+    .populate("songs");
+  return result;
   }
   if (!data.username) {
     const result = await albumsModel
@@ -39,21 +61,33 @@ export const findAlbums = async (data: searchParameters) => {
   return result;
 };
 
-export const findOneAlbum = async (albumId: String) => {
-  const album = await albumsModel.findById(albumId).populate("songs");
+export const findOneAlbum = async (albumId: string): Promise<any> => {
+  const album = await albumsModel.findById(albumId)
+    .populate("songs")
+    .populate("owner")
+    .exec();
+
   if (!album) {
     return null;
-  } else {
-    return album;
   }
+  const populatedAlbum = album.toObject() as Album;
+  const response = {
+    title: populatedAlbum.title,
+    username: (populatedAlbum.owner as Owner).username,
+    songs: (populatedAlbum.songs as Song[]).map((song) => ({
+      songTitle: song.title,
+      songUrl: song.url
+    }))
+  }
+  return response;
 };
 
 export const createAlbum = async (
   title: String,
   genre: String,
   username: String,
-  songs?: Types.ObjectId[],
-  image?: String
+  image?: any,
+  songs?: Types.ObjectId[]
 ) => {
   const user = await User.findOne({ username: username });
   if (!user) {
@@ -63,18 +97,23 @@ export const createAlbum = async (
   if (exists) {
     return 2;
   }
+  const imageStore = await cloudinary.uploader.upload(image.path,{
+    resource_type: "image",
+    folder: `Tracks/${title}/img`
+  })
+
   const validSongs =
     songs && Array.isArray(songs)
       ? songs.map((song) => new Types.ObjectId(song))
       : [];
+
+      console.log(image)
   const newAlbum = await albumsModel.create({
     title: title,
     genre: genre,
     owner: user?._id,
     songs: validSongs,
-    image:
-      image ||
-      "https://i0.wp.com/sbcf.fr/wp-content/uploads/2018/03/sbcf-default-avatar.png?w=300&ssl=1",
+    image: imageStore.secure_url || "https://i0.wp.com/sbcf.fr/wp-content/uploads/2018/03/sbcf-default-avatar.png?w=300&ssl=1"
   });
   return newAlbum;
 };
@@ -122,14 +161,15 @@ export const deleteFullAlbum = async (title: String, username: String) => {
   if (!user) {
     return 0;
   } else {
-    //await soundtrack.deleteMany({ _id: { $in: album.songs } });
+    const album = await albumsModel.findOne({title: title, owner: user._id})
     const deletingAlbum = await albumsModel.deleteOne({
       title: title,
       owner: user._id,
-    });
-    if (!deletingAlbum) {
-      return 0;
-    } else {
+      });
+      if (!deletingAlbum) {
+        return 0;
+        } else {
+      await soundtrack.deleteMany({ _id: { $in: album?.songs } });
       return 1;
     }
   }

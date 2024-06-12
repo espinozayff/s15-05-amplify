@@ -2,7 +2,7 @@ import { Router } from "express";
 import multer from "multer";
 import tracksController from "../controllers/tracks.controller";
 import { trackValidator } from "../middleware/trauck.validator";
-import verifyToken from "../middleware/auth";
+import { verifyToken } from "../middleware/auth";
 
 
 const upload = multer({ dest: "uploads/" });

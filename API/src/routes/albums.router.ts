@@ -1,4 +1,5 @@
 import { Router } from "express"
+import multer from "multer";
 import {
     getAlbums,
     getAlbumById,
@@ -7,13 +8,15 @@ import {
     deleteAlbum
 } from "../controllers/albums.controller"
 
+const upload = multer({ dest: "uploads/" });
+
 const albumsRouter = Router()
 
 albumsRouter.get('/', getAlbums)
 
 albumsRouter.get('/:id', getAlbumById)
 
-albumsRouter.post('/', newAlbum)
+albumsRouter.post('/', upload.single('image'), newAlbum)
 
 albumsRouter.put('/:id', updateAlbum)
 
