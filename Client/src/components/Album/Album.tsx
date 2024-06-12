@@ -7,6 +7,7 @@ import OptionSelect from "components/common/OptionSelect";
 import { useState } from "react";
 import Button from "components/common/Button/Button";
 import usePlayerStore from "store/playerStore";
+import HeartButton from "components/common/HeartButton";
 
 interface Song {
   song_id: number;
@@ -79,9 +80,10 @@ const Album: React.FC = () => {
             <p className="text-[#BDBDBD] font-bold text-2xl mb-2">{author}</p>
           </div>
           <div className="flex gap-5">
-            <button className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-black rounded-full">
+            {/* <button className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-black rounded-full">
               <img className="" src={heartIcon} alt="Heart icon" />
-            </button>
+            </button> */}
+            <HeartButton albumTitle={title} />
             <button
               onClick={() => handlePlayButtonClick(1)}
               className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-[#9D174D] rounded-full"
