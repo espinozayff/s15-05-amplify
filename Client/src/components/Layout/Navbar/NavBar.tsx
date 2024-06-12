@@ -51,7 +51,7 @@ const NavBar: React.FC = () => {
     <div className="relative">
       <div className="flex items-center justify-between text-white px-5 py-2 bg-[#121212] border-none">
         <div className="flex items-center">
-        <Link to="/">
+          <Link to="/">
             <Logo />
           </Link>
         </div>
@@ -61,7 +61,9 @@ const NavBar: React.FC = () => {
         <div className="flex items-center gap-14 pr-3">
           <a href="/">Descubrir</a>
           <a href="/">Playlists</a>
-          <a href="/" className="bg-white text-black px-3 py-2 rounded-md">Subir Música</a>
+          <a href="/" className="bg-white text-black px-3 py-2 rounded-md">
+            Subir Música
+          </a>
           <div className="relative flex items-center gap-4" ref={menuRef}>
             <button
               onClick={toggleMenu}
@@ -75,16 +77,14 @@ const NavBar: React.FC = () => {
             </button>
             <div className="flex flex-col text-white text-right">
               <p className="text-gray-400">Hola,</p>
-              <span >Fernando</span>
+              <span>Fernando</span>
             </div>
             {menuAbierto && (
               <>
                 <div className="fixed inset-0 z-20 " onClick={toggleMenu}>
                   <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm mt-14"></div>
                 </div>
-                <ul
-                  className="absolute right-0 mt-[427px] w-96  bg-[#171717] border border-gray-700 rounded-md shadow-lg z-40 text-white perfil-menu"
-                >
+                <ul className="absolute right-0 mt-[427px] w-96  bg-[#171717] border border-gray-700 rounded-md shadow-lg z-40 text-white perfil-menu">
                   <li className="px-4 py-2 flex items-center">
                     <div className="flex flex-col flex-1">
                       <h2 className="text-2xl mb-4">Perfil</h2>
@@ -150,7 +150,6 @@ const NavBar: React.FC = () => {
                       </div>
                     </div>
                   </li>
-                  
                 </ul>
               </>
             )}
