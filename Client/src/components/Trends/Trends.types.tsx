@@ -4,6 +4,7 @@ export interface TrendData {
   title: string;
   author: string;
   image: string;
+  songs: {};
 }
 
 export interface ImageMap {

@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import playIcon from "../../../assets/img/playIcon.svg";
 import { TrendData } from "../../Trends/Trends.types";
 
-export default function CardTend({ id, genre, title, author, image }: TrendData) {
+export default function CardTend({ id, genre, title, author, image, songs }: TrendData) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/album/${id}`, { state: { id, genre, title, author, image } });
+    navigate(`/album/${id}`, { state: { id, genre, title, author, image, songs } });
   };
 
   return (

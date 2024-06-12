@@ -2,7 +2,7 @@ import { JSX } from "react";
 import { ITrack } from "./Player.types";
 import { RiPlayListFill } from "react-icons/ri";
 
-//handler might be removed to use context
+// handler might be removed to use context
 
 function Tracks({
   tracks = [],
@@ -16,14 +16,14 @@ function Tracks({
   }
 
   return (
-    <div className="group relative max-md:px-2.5 flex max-md:order-2">
+    <div className="group relative max-md:px-2.5 max-md:order-2">
       <button aria-label="Lista de canciones">
         <RiPlayListFill size={"1.35em"} />
       </button>
-      <div className="absolute flex transition-[bottom] duration-300 right-0 w-fit -bottom-[100dvh] group-hover:bottom-5 flex-col bg-black text-xs">
+      <div className="hidden group-hover:flex h-80 overflow-y-scroll flex-col absolute transition-all duration-200 bottom-0 right-0 bg-black w-60">
         {tracks.map((e, index) => (
           <button key={e.title} onClick={() => handler(index)} className="hover:bg-white/20 p-2">
-            - {e.artist} - {e.title}
+            {e.artist} - {e.title}
           </button>
         ))}
       </div>

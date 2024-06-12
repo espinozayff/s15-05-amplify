@@ -1,43 +1,35 @@
+
 import { create } from "zustand";
 import { ITrack } from "../components/Player/Player.types";
+import tracksData from '../data/amplifyDataBack.json';  // Importar el JSON
+
+// Transformar las pistas del JSON a la estructura ITrack
+const transformedTracks = tracksData.tracks.flatMap(track => 
+  track.songs.map(song => ({
+    title: song.title,
+    artist: track.author,
+    album: track.title,
+    cover: song.cover_image,
+    url: song.file,
+  }))
+);
 
 interface IPlayerStore {
   tracks: ITrack[];
   currentIndex: number;
   setTracks: (newTracks: ITrack[]) => void;
   setIndex: (newIndex: number) => void;
+  currentAlbumIndex: number; // Nuevo estado para almacenar el índice del álbum actual
+  setCurrentAlbumIndex: (index: number) => void; // Función para actualizar el índice del álbum actual
 }
 
-const defaultValues: ITrack[] = [
-  {
-    title: "Chords of Life",
-    artist: "Madza",
-    album: "Album Madza",
-    cover:
-      "https://images.theconversation.com/files/512871/original/file-20230301-26-ryosag.jpg?ixlib=rb-4.1.0&rect=97%2C79%2C5799%2C5817&q=45&auto=format&w=926&fit=clip",
-    url: "https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3",
-  },
-  {
-    title: "Late Night Drive",
-    artist: "Madza 2",
-    album: "Album Madza 2",
-    cover: "https://upload.wikimedia.org/wikipedia/en/e/e5/In_Utero_%28Nirvana%29_album_cover.jpg",
-    url: "https://audioplayer.madza.dev/Madza-Late_Night_Drive.mp3",
-  },
-  {
-    title: "Persistence",
-    artist: "Madza 3",
-    album: "Album Madza 3",
-    cover: "https://ecx.images-amazon.com/images/I/51vrW3uNCJL._SL500_.jpg",
-    url: "https://audioplayer.madza.dev/Madza-Persistence.mp3",
-  },
-];
-
 const usePlayerStore = create<IPlayerStore>((set) => ({
-  tracks: defaultValues,
+  tracks: transformedTracks,
   currentIndex: 0,
   setTracks: (newTracks: ITrack[]) => set({ tracks: newTracks }),
   setIndex: (newIndex: number) => set({ currentIndex: newIndex }),
+  currentAlbumIndex: 0, // Inicialmente, se establece en 0 o el índice del álbum por defecto
+  setCurrentAlbumIndex: (index: number) => set({ currentAlbumIndex: index }), // Función para actualizar el índice del álbum actual
 }));
 
 export default usePlayerStore;
