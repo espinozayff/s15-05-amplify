@@ -32,7 +32,6 @@ class trackService {
   async createTrack(songFile: UploadFile, body: trackInterface, imageFile:any): Promise<any> {
     try {
       const { title, genrer, user, album } = body;
-
       const response = await cloudinary.uploader.upload(songFile.path, {
         resource_type: "video",
       });
@@ -41,8 +40,8 @@ class trackService {
         resource_type: "image",
       })
 
-      const genrerUpload = await genrerModel.findById(genrer!.id);
-      if (!genrerUpload) throw new Error("Género no encontrado");
+     /*  const genrerUpload = await genrerModel.findById(genrer!.id);
+      if (!genrerUpload) throw new Error("Género no encontrado"); */
       const newTrack = new Soundtrack({
         title,
         genrer,
@@ -53,7 +52,7 @@ class trackService {
       });
       
       const savedTrack = await newTrack.save();
-      const updateGenrer = await genrerServices.updateGenrer(genrer!.id, savedTrack.id);
+      /* const updateGenrer = await genrerServices.updateGenrer(genrer!.id, savedTrack.id); */
       return {msg:'Canción creada exitosamente'};
     } catch (error) {
       throw new Error(`Error al crear la canción: ${(error as Error).message}`);

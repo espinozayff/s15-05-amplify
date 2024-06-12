@@ -9,7 +9,7 @@ router.get('/',  genrerController.getGenrer);
 router.get('/:id', genrerController.getGenrerById);
 router.post('/', upload.single('image'), genrerController.createGenrer);
 router.put('/:id', genrerController.updateGenrer);
-router.put('/image/:id', genrerController.updateImage);
+router.put('/image/:id',upload.single('image'), genrerController.updateImage);
 router.delete('/:id', genrerController.deleteGenrer);
 
 export default router;
