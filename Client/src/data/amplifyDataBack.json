@@ -1,304 +1,304 @@
 {
-    "tracks":[
-       {
-          "track_id":1,
-          "title":"COUNTY’S BRAVE OLD MEN",
-          "genre":"Country",
-          "author":"Christian Peterman",
-          "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153749/Tracks/COUNTRY-BRAVE-OLD-MEN/v9miswxzvbz0xvppgfl2.jpg",
-          "songs":[
-             {
-                "song_id":1,
-                "title":"Railway Traveller",
-                "gender":"Country",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153091/Tracks/COUNTRY-BRAVE-OLD-MEN/Img/1.Country.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153670/Tracks/COUNTRY-BRAVE-OLD-MEN/Music/1.Country.mp3"
-             },
-             {
-                "song_id":2,
-                "title":"Train Ride",
-                "gender":"Country",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153091/Tracks/COUNTRY-BRAVE-OLD-MEN/Img/2.Country.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153662/Tracks/COUNTRY-BRAVE-OLD-MEN/Music/2.Country.mp3"
-             },
-             {
-                "song_id":3,
-                "title":"Hopping in the fields",
-                "gender":"Country",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153091/Tracks/COUNTRY-BRAVE-OLD-MEN/Img/3.Country.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153660/Tracks/COUNTRY-BRAVE-OLD-MEN/Music/3.Country.mp3"
-             }
-          ]
-       },
-       {
-          "track_id":2,
-          "title":"Punk My Life",
-          "genre":"Punk Rock",
-          "author":"Music Polarium",
-          "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153741/Tracks/PUNK_MY_LIFE/PunkAlbum.jpg",
-          "songs":[
-             {
-                "song_id":1,
-                "title":"Punk Rock",
-                "gender":"Punk Rock",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153132/Tracks/PUNK_MY_LIFE/Img/1.Punk.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153644/Tracks/PUNK_MY_LIFE/Music/1.Punk.mp3"
-             },
-             {
-                "song_id":2,
-                "title":"88Crutch",
-                "gender":"Punk Rock",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153132/Tracks/PUNK_MY_LIFE/Img/2.Punk.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153640/Tracks/PUNK_MY_LIFE/Music/2.Punk.mp3"
-             },
-             {
-                "song_id":3,
-                "title":"TaigaSoundProd",
-                "gender":"Punk Rock",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153131/Tracks/PUNK_MY_LIFE/Img/3.Punk.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153636/Tracks/PUNK_MY_LIFE/Music/3.Punk.mp3"
-             }
-          ]
-       },
-       {
-          "track_id":3,
-          "title":"Ti Prego",
-          "genre":"Pop",
-          "author":"Oleg Zobachev",
-          "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153732/Tracks/TI_PREGO/r0ndqmx3uj1ts1jbypoe.jpg",
-          "songs":[
-             {
-                "song_id":1,
-                "title":"Feline Dancing",
-                "gender":"Pop",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153158/Tracks/TI_PREGO/Img/wsba42pvw2ekwbje2cmm.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153701/Tracks/TI_PREGO/Music/utffyfsff8gqergmsfvf.mp3"
-             },
-             {
-                "song_id":2,
-                "title":"Why did you tell me",
-                "gender":"Pop",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153158/Tracks/TI_PREGO/Img/yde2vavnoow6tiwmxhgc.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153698/Tracks/TI_PREGO/Music/bumuxyatdscduwwwgg0h.mp3"
-             },
-             {
-                "song_id":3,
-                "title":"The_Character",
-                "gender":"Pop",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153157/Tracks/TI_PREGO/Img/gupbblwaqfjcxxmi5m8v.jpg",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153696/Tracks/TI_PREGO/Music/uotwwjw9ybwsguh6u7mc.mp3"
-             }
-          ]
-       },
-       {
-          "track_id":4,
-          "title":"ECOS DEL INFINITO",
-          "genre":"Deep house",
-          "author":"Gainn",
-          "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718142587/Tracks/ECOS-DEL-INFINITO/Portada.jpg",
-          "songs":[
-             {
-                "song_id":1,
-                "title":"Your Monster",
-                "gender":"Deep house",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718140901/Tracks/ECOS-DEL-INFINITO/Img/1.Your%20Monster.png",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718140921/Tracks/ECOS-DEL-INFINITO/Music/1.Your%20Monster.mp3"
-             },
-             {
-                "song_id":2,
-                "title":"The List",
-                "gender":"slap house",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718142070/Tracks/ECOS-DEL-INFINITO/Img/2.The%20List.png",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718141494/Tracks/ECOS-DEL-INFINITO/Music/2.The%20List.mp3"
-             },
-             {
-                "song_id":3,
-                "title":"Closer",
-                "gender":"Powerful",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718140901/Tracks/ECOS-DEL-INFINITO/Img/1.Your%20Monster.png",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718142337/Tracks/ECOS-DEL-INFINITO/Music/3.Closer.mp3"
-             }
-          ]
-       },
-       {
-          "track_id":5,
-          "title":"ETERNIDAD SONORA",
-          "genre":"Progressive metal",
-          "author":"te2w",
-          "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154942/Tracks/ETERNIDAD-SONORA/Portada.jpg",
-          "songs":[
-             {
-                "song_id":1,
-                "title":"Divided in unity",
-                "gender":"Progressive metal",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154267/Tracks/ETERNIDAD-SONORA/Img/1.Divided%20in%20unity.png",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718154232/Tracks/ETERNIDAD-SONORA/Music/1.Divided%20in%20unity.mp3"
-             },
-             {
-                "song_id":2,
-                "title":"Capeless Heroine",
-                "gender":"Heavy metal",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154498/Tracks/ETERNIDAD-SONORA/Img/2.Capeless%20Heroine.png",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718154471/Tracks/ETERNIDAD-SONORA/Music/2.Capeless%20Heroine.mp3"
-             },
-             {
-                "song_id":3,
-                "title":"A bard's uprise",
-                "gender":"Indie folk",
-                "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154727/Tracks/ETERNIDAD-SONORA/Img/3.A%20bard%27s%20uprise.png",
-                "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718154690/Tracks/ETERNIDAD-SONORA/Music/3.A%20bard%27s%20uprise.mp3"
-             }
-          ]
-       },
-       {
-         "track_id":6,
-         "title":"HORIZONTE INTERESTELAR",
-         "genre":"Rhythmic",
-         "author":"charlie",
-         "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718156168/Tracks/HORIZONTE-INTERESTELAR/Portada.jpg",
-         "songs":[
-            {
-               "song_id":1,
-               "title":"That City (Underwater)",
-               "gender":"Rhythmic",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155490/Tracks/HORIZONTE-INTERESTELAR/Img/1.That%20City%20%28Underwater%29.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155469/Tracks/HORIZONTE-INTERESTELAR/Music/1.That%20City%20%28Underwater%29.mp3"
-            },
-            {
-               "song_id":2,
-               "title":"UDIO at my show",
-               "gender":"Female vocalist",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155748/Tracks/HORIZONTE-INTERESTELAR/Img/2.UDIO%20at%20my%20show.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155723/Tracks/HORIZONTE-INTERESTELAR/Music/2.UDIO%20at%20my%20show.mp3"
-            },
-            {
-               "song_id":3,
-               "title":"SNES Greensleeves",
-               "gender":"Greensleeves",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155973/Tracks/HORIZONTE-INTERESTELAR/Img/3.SNES%20Greensleeves.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718156001/Tracks/HORIZONTE-INTERESTELAR/Music/3.SNES%20Greensleeves.mp3"
-            }
-         ]
-      },
-      {
-         "track_id":7,
-         "title":"VIBRACIONES DEL ALMA",
-         "genre":"Alternative rock",
-         "author":"Mythologick",
-         "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718157195/Tracks/VIBRACIONES-DEL-ALMA/Portada.png",
-         "songs":[
-            {
-               "song_id":1,
-               "title":"Unbound",
-               "gender":"Alternative rock",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155490/Tracks/HORIZONTE-INTERESTELAR/Img/1.That%20City%20%28Underwater%29.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155469/Tracks/HORIZONTE-INTERESTELAR/Music/1.That%20City%20%28Underwater%29.mp3"
-            },
-            {
-               "song_id":2,
-               "title":"Missin' You Tonight",
-               "gender":"Acoustic guitar",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155748/Tracks/HORIZONTE-INTERESTELAR/Img/2.UDIO%20at%20my%20show.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155723/Tracks/HORIZONTE-INTERESTELAR/Music/2.UDIO%20at%20my%20show.mp3"
-            },
-            {
-               "song_id":3,
-               "title":"Please Just Stay",
-               "gender":"Nu metal",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155973/Tracks/HORIZONTE-INTERESTELAR/Img/3.SNES%20Greensleeves.pngg",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718156001/Tracks/HORIZONTE-INTERESTELAR/Music/3.SNES%20Greensleeves.mp3"
-            }
-         ]
-      },
-      {
-         "track_id":8,
-         "title":"OHIYO!",
-         "genre":"Mundo",
-         "author":"Musashi Nakamura",
-         "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718170120/Tracks/OHIYO%21/Portada-ohiyo%21.png.png",
-         "songs":[
-            {
-               "song_id":1,
-               "title":"Heart Shaker",
-               "gender":"Mundo",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169746/Tracks/OHIYO%21/Img/1.%20Heart%20Shaker.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718165231/Tracks/OHIYO%21/Music/1.%20Heart%20Shaker.mp3.mp3"
-            },
-            {
-               "song_id":2,
-               "title":"Stay with me",
-               "gender":"Classical",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169876/Tracks/OHIYO%21/Img/3.%20Stay%20with%20me.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718165657/Tracks/OHIYO%21/Music/2.%20FANTASY.MP3.mp3"
-            },
-            {
-               "song_id":3,
-               "title":"FANTASY",
-               "gender":"Mundo",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169945/Tracks/OHIYO%21/Img/2.%20FANTASY.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718166272/Tracks/OHIYO%21/Music/3.%20Stay%20with%20me.mp3.mp3"
-            }
-         ]
-      },
-      {
-         "track_id":9,
-         "title":"IT WAS LOVE",
-         "genre":"Introspective",
-         "author":"Luna Nova",
-         "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169652/Tracks/IT-WAS-LOVE/Portada-Pop.png.png",
-         "songs":[
-            {
-               "song_id":1,
-               "title":"I Know",
-               "gender":"Introspective",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169422/Tracks/IT-WAS-LOVE/Img/1.%20I%20Know.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718166636/Tracks/IT-WAS-LOVE/Music/1.%20I%20Know.mp3.mp3"
-            },
-            {
-               "song_id":2,
-               "title":"Crazy Dreams",
-               "gender":"Classical",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169355/Tracks/IT-WAS-LOVE/Img/2.%20Crazy%20Dreams.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718166887/Tracks/IT-WAS-LOVE/Music/2.%20Crazy%20Dreams.mp3.mp3"
-            },
-            {
-               "song_id":3,
-               "title":"Lazer Snake",
-               "gender":"Powerful",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169279/Tracks/IT-WAS-LOVE/Img/3.%20Lazer%20Snake.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718167188/Tracks/IT-WAS-LOVE/Music/3.%20Lazer%20Snake.mp3.mp3"
-            }
-         ]
-      },
-      {
-         "track_id":10,
-         "title":"ROME",
-         "genre":"Contemporary",
-         "author":"Johnny Sparks",
-         "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169136/Tracks/ROME/Rome.png.png",
-         "songs":[
-            {
-               "song_id":1,
-               "title":"You didn't have to cut me off",
-               "gender":"Contemporary",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718168834/Tracks/ROME/Img/1.%20You%20didn%27t%20have%20to%20cut%20me%20off.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718167531/Tracks/ROME/Music/1.%20You%20didn%27t%20have%20to%20cut%20me%20off.mp3.mp3"
-            },
-            {
-               "song_id":2,
-               "title":"Of The Nightfall",
-               "gender":"Melodic",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718167813/Tracks/ROME/Music/2.%20Of%20The%20Nightfall.mp3.mp3",
-               "file":"path/to/track5/music/cancion2.mp3"
-            },
-            {
-               "song_id":3,
-               "title":"Take Me Out",
-               "gender":"Classical",
-               "cover_image":"https://res.cloudinary.com/drwwbw0ih/image/upload/v1718168736/Tracks/ROME/Img/3.%20Take%20Me%20Out.png.png",
-               "file":"https://res.cloudinary.com/drwwbw0ih/video/upload/v1718168019/Tracks/ROME/Music/3.%20Take%20Me%20Out.mp3.mp3"
-            }
-         ]
-      }
-    ]
- }
+  "tracks": [
+    {
+      "track_id": 1,
+      "title": "COUNTY’S BRAVE OLD MEN",
+      "genre": "Country",
+      "author": "Christian Peterman",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153749/Tracks/COUNTRY-BRAVE-OLD-MEN/v9miswxzvbz0xvppgfl2.jpg",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "Railway Traveller",
+          "gender": "Country",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153091/Tracks/COUNTRY-BRAVE-OLD-MEN/Img/1.Country.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153670/Tracks/COUNTRY-BRAVE-OLD-MEN/Music/1.Country.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "Train Ride",
+          "gender": "Country",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153091/Tracks/COUNTRY-BRAVE-OLD-MEN/Img/2.Country.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153662/Tracks/COUNTRY-BRAVE-OLD-MEN/Music/2.Country.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "Hopping in the fields",
+          "gender": "Country",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153091/Tracks/COUNTRY-BRAVE-OLD-MEN/Img/3.Country.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153660/Tracks/COUNTRY-BRAVE-OLD-MEN/Music/3.Country.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 2,
+      "title": "Punk My Life",
+      "genre": "Punk Rock",
+      "author": "Music Polarium",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153741/Tracks/PUNK_MY_LIFE/PunkAlbum.jpg",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "Punk Rock",
+          "gender": "Punk Rock",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153132/Tracks/PUNK_MY_LIFE/Img/1.Punk.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153644/Tracks/PUNK_MY_LIFE/Music/1.Punk.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "88Crutch",
+          "gender": "Punk Rock",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153132/Tracks/PUNK_MY_LIFE/Img/2.Punk.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153640/Tracks/PUNK_MY_LIFE/Music/2.Punk.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "TaigaSoundProd",
+          "gender": "Punk Rock",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153131/Tracks/PUNK_MY_LIFE/Img/3.Punk.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153636/Tracks/PUNK_MY_LIFE/Music/3.Punk.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 3,
+      "title": "Ti Prego",
+      "genre": "Pop",
+      "author": "Oleg Zobachev",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153732/Tracks/TI_PREGO/r0ndqmx3uj1ts1jbypoe.jpg",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "Feline Dancing",
+          "gender": "Pop",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153158/Tracks/TI_PREGO/Img/wsba42pvw2ekwbje2cmm.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153701/Tracks/TI_PREGO/Music/utffyfsff8gqergmsfvf.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "Why did you tell me",
+          "gender": "Pop",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153158/Tracks/TI_PREGO/Img/yde2vavnoow6tiwmxhgc.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153698/Tracks/TI_PREGO/Music/bumuxyatdscduwwwgg0h.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "The_Character",
+          "gender": "Pop",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718153157/Tracks/TI_PREGO/Img/gupbblwaqfjcxxmi5m8v.jpg",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718153696/Tracks/TI_PREGO/Music/uotwwjw9ybwsguh6u7mc.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 4,
+      "title": "ECOS DEL INFINITO",
+      "genre": "Deep house",
+      "author": "Gainn",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718142587/Tracks/ECOS-DEL-INFINITO/Portada.jpg",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "Your Monster",
+          "gender": "Deep house",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718140901/Tracks/ECOS-DEL-INFINITO/Img/1.Your%20Monster.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718140921/Tracks/ECOS-DEL-INFINITO/Music/1.Your%20Monster.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "The List",
+          "gender": "slap house",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718142070/Tracks/ECOS-DEL-INFINITO/Img/2.The%20List.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718141494/Tracks/ECOS-DEL-INFINITO/Music/2.The%20List.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "Closer",
+          "gender": "Powerful",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718140901/Tracks/ECOS-DEL-INFINITO/Img/1.Your%20Monster.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718142337/Tracks/ECOS-DEL-INFINITO/Music/3.Closer.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 5,
+      "title": "ETERNIDAD SONORA",
+      "genre": "Progressive metal",
+      "author": "te2w",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154942/Tracks/ETERNIDAD-SONORA/Portada.jpg",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "Divided in unity",
+          "gender": "Progressive metal",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154267/Tracks/ETERNIDAD-SONORA/Img/1.Divided%20in%20unity.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718154232/Tracks/ETERNIDAD-SONORA/Music/1.Divided%20in%20unity.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "Capeless Heroine",
+          "gender": "Heavy metal",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154498/Tracks/ETERNIDAD-SONORA/Img/2.Capeless%20Heroine.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718154471/Tracks/ETERNIDAD-SONORA/Music/2.Capeless%20Heroine.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "A bard's uprise",
+          "gender": "Indie folk",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718154727/Tracks/ETERNIDAD-SONORA/Img/3.A%20bard%27s%20uprise.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718154690/Tracks/ETERNIDAD-SONORA/Music/3.A%20bard%27s%20uprise.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 6,
+      "title": "HORIZONTE INTERESTELAR",
+      "genre": "Rhythmic",
+      "author": "charlie",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718156168/Tracks/HORIZONTE-INTERESTELAR/Portada.jpg",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "That City (Underwater)",
+          "gender": "Rhythmic",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155490/Tracks/HORIZONTE-INTERESTELAR/Img/1.That%20City%20%28Underwater%29.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155469/Tracks/HORIZONTE-INTERESTELAR/Music/1.That%20City%20%28Underwater%29.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "UDIO at my show",
+          "gender": "Female vocalist",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155748/Tracks/HORIZONTE-INTERESTELAR/Img/2.UDIO%20at%20my%20show.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155723/Tracks/HORIZONTE-INTERESTELAR/Music/2.UDIO%20at%20my%20show.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "SNES Greensleeves",
+          "gender": "Greensleeves",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155973/Tracks/HORIZONTE-INTERESTELAR/Img/3.SNES%20Greensleeves.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718156001/Tracks/HORIZONTE-INTERESTELAR/Music/3.SNES%20Greensleeves.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 7,
+      "title": "VIBRACIONES DEL ALMA",
+      "genre": "Alternative rock",
+      "author": "Mythologick",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718157195/Tracks/VIBRACIONES-DEL-ALMA/Portada.png",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "Unbound",
+          "gender": "Alternative rock",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155490/Tracks/HORIZONTE-INTERESTELAR/Img/1.That%20City%20%28Underwater%29.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155469/Tracks/HORIZONTE-INTERESTELAR/Music/1.That%20City%20%28Underwater%29.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "Missin' You Tonight",
+          "gender": "Acoustic guitar",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155748/Tracks/HORIZONTE-INTERESTELAR/Img/2.UDIO%20at%20my%20show.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155723/Tracks/HORIZONTE-INTERESTELAR/Music/2.UDIO%20at%20my%20show.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "Please Just Stay",
+          "gender": "Nu metal",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155973/Tracks/HORIZONTE-INTERESTELAR/Img/3.SNES%20Greensleeves.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718156001/Tracks/HORIZONTE-INTERESTELAR/Music/3.SNES%20Greensleeves.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 8,
+      "title": "OHIYO!",
+      "genre": "Mundo",
+      "author": "Musashi Nakamura",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718170120/Tracks/OHIYO%21/Portada-ohiyo%21.png.png",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "Heart Shaker",
+          "gender": "Mundo",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169746/Tracks/OHIYO%21/Img/1.%20Heart%20Shaker.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718165231/Tracks/OHIYO%21/Music/1.%20Heart%20Shaker.mp3.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "Stay with me",
+          "gender": "Classical",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169876/Tracks/OHIYO%21/Img/3.%20Stay%20with%20me.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718165657/Tracks/OHIYO%21/Music/2.%20FANTASY.MP3.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "FANTASY",
+          "gender": "Mundo",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169945/Tracks/OHIYO%21/Img/2.%20FANTASY.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718166272/Tracks/OHIYO%21/Music/3.%20Stay%20with%20me.mp3.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 9,
+      "title": "IT WAS LOVE",
+      "genre": "Introspective",
+      "author": "Luna Nova",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169652/Tracks/IT-WAS-LOVE/Portada-Pop.png.png",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "I Know",
+          "gender": "Introspective",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169422/Tracks/IT-WAS-LOVE/Img/1.%20I%20Know.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718166636/Tracks/IT-WAS-LOVE/Music/1.%20I%20Know.mp3.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "Crazy Dreams",
+          "gender": "Classical",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169355/Tracks/IT-WAS-LOVE/Img/2.%20Crazy%20Dreams.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718166887/Tracks/IT-WAS-LOVE/Music/2.%20Crazy%20Dreams.mp3.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "Lazer Snake",
+          "gender": "Powerful",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169279/Tracks/IT-WAS-LOVE/Img/3.%20Lazer%20Snake.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718167188/Tracks/IT-WAS-LOVE/Music/3.%20Lazer%20Snake.mp3.mp3"
+        }
+      ]
+    },
+    {
+      "track_id": 10,
+      "title": "ROME",
+      "genre": "Contemporary",
+      "author": "Johnny Sparks",
+      "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718169136/Tracks/ROME/Rome.png.png",
+      "songs": [
+        {
+          "song_id": 1,
+          "title": "You didn't have to cut me off",
+          "gender": "Contemporary",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718168834/Tracks/ROME/Img/1.%20You%20didn%27t%20have%20to%20cut%20me%20off.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718167531/Tracks/ROME/Music/1.%20You%20didn%27t%20have%20to%20cut%20me%20off.mp3.mp3"
+        },
+        {
+          "song_id": 2,
+          "title": "Of The Nightfall",
+          "gender": "Melodic",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718168926/Tracks/ROME/Img/2.%20Of%20The%20Nightfall.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718167813/Tracks/ROME/Music/2.%20Of%20The%20Nightfall.mp3.mp3"
+        },
+        {
+          "song_id": 3,
+          "title": "Take Me Out",
+          "gender": "Classical",
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718168736/Tracks/ROME/Img/3.%20Take%20Me%20Out.png.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718168019/Tracks/ROME/Music/3.%20Take%20Me%20Out.mp3.mp3"
+        }
+      ]
+    }
+  ]
+}

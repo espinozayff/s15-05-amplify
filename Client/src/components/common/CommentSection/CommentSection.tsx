@@ -3,11 +3,7 @@ import { Comment } from "./CommentSection.types";
 import generateRandomComments from "../../../data/comment/generateComments";
 import { Link } from "react-router-dom";
 
-interface CommentSectionProps {
-  comments: Comment[];
-}
-
-const CommentSection: React.FC<CommentSectionProps> = () => {
+const CommentSection: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
@@ -15,7 +11,7 @@ const CommentSection: React.FC<CommentSectionProps> = () => {
     setComments(randomComments);
   }, []);
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 mt-6">
       {comments.map((comment) => (
         <div key={comment.id} className="flex items-center space-x-4 justify-start">
           <div className="flex-shrink-0">

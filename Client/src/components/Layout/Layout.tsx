@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import NavBar from "./Navbar";
 import { Player } from "../Player";
 import Footer from "./Footer/Footer";
@@ -11,6 +11,7 @@ function Layout(): JSX.Element {
       <Outlet />
       <Player />
       <Footer />
+      <ScrollRestoration />
     </>
   );
 }

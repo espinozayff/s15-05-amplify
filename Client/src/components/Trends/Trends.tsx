@@ -12,7 +12,7 @@ export default function Trends() {
 
   return (
     <div className="flex-col bg-[#000000]">
-      <div className="flex justify-between items-baseline">
+      <div className="flex justify-between items-baseline mx-3">
         <h3 className="font-medium text-4xl text-[#666666] mb-2 ml-2">Tendencias</h3>
         <p className="font-normal text-white cursor-pointer">
           <a href="">Ver Todo</a>

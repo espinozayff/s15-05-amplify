@@ -11,13 +11,13 @@ export default function CardTend({ id, genre, title, author, image }: TrendData)
 
   return (
     <div
-      className="flex-grow max-w-[250px] min-w-[150px] w-[calc(20%-1rem)] m-1"
+      className="flex-grow max-w-[250px] min-w-[150px] w-[calc(20%-1rem)] m-1 hover:cursor-pointer"
       onClick={handleClick}
     >
       <div className="relative border-none group">
         <img className="" src={image} alt="" />
         <div className="absolute top-3 right-3 bg-white py-1 px-3 rounded-full">
-          <p>{genre}</p>
+          <p className="text-sm">{genre}</p>
         </div>
         <div className="absolute bottom-3 right-4 w-12 h-12 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex justify-center items-center cursor-pointer bg-black border-2 border-white">
           <img className="ml-1" src={playIcon} alt="" />

@@ -49,21 +49,28 @@ const NavBar: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="flex items-center justify-between text-white px-5 py-2 bg-[#121212] border-none">
+      <div className="flex items-center justify-between text-white xl:px-5 px-2 py-2 bg-[#121212] border-none">
         <div className="flex items-center">
           <Link to="/">
             <Logo />
           </Link>
         </div>
-        <div className="flex items-center justify-center flex-1">
+        <div className="flex items-center justify-center flex-1 relative">
           <SearchBar />
         </div>
         <div className="flex items-center gap-14 pr-3">
-          <a href="/">Descubrir</a>
-          <a href="/">Playlists</a>
-          <a href="/" className="bg-white text-black px-3 py-2 rounded-md">
+          <Link to="/" className="hidden lg:block">
+            Descubrir
+          </Link>
+          <Link to="/" className="hidden lg:block">
+            Playlists
+          </Link>
+          <Link
+            to="/"
+            className="bg-white text-black px-3 py-2 rounded-md hidden lg:block whitespace-nowrap"
+          >
             Subir Música
-          </a>
+          </Link>
           <div className="relative flex items-center gap-4" ref={menuRef}>
             <button
               onClick={toggleMenu}

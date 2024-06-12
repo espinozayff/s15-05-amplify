@@ -76,7 +76,7 @@ export default function Album() {
           ))}
         </div>
 
-        <div className="mt-6 mx-auto">
+        <div className="mt-8 mx-auto">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl font-bold">Comentarios</h1>
             <div className="w-44">
