@@ -26,10 +26,6 @@ Crea y administra tus propias listas de reproducción personalizadas. Agrupa tus
 
 Navegación fácil y diseño moderno orientado a mejorar la experiencia del usuario. Amplify está diseñado para que encuentres y disfrutes música sin complicaciones.
 
-## **Capturas de Pantalla**
-
-![Captura de Pantalla](./Assets/portada.webp)
-
 ## **Tecnologías Utilizadas**
 
 ### **Frontend:**
