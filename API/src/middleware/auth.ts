@@ -19,7 +19,7 @@ export interface CustomRequest extends Request {
   user?: DecodedToken;
 }
 
-const verifyToken = (req: CustomRequest, res: Response, next: NextFunction): Response | void => {
+export const verifyToken = (req: CustomRequest, res: Response, next: NextFunction): Response | void => {
   const token = req.headers["x-access-token"] as string | undefined;
 
   if (!token) {
@@ -33,15 +33,16 @@ const verifyToken = (req: CustomRequest, res: Response, next: NextFunction): Res
   try {
     const decoded = jwt.verify(token, JWT_KEY) as DecodedToken;
     req.user = decoded;
+
+    return next();
+
   } catch (error) {
     console.error("JWT verification error:", error);
     return res.status(401).send("Token inválido");
   }
-
-  return next();
 };
 
-const destroyToken = (req: Request, res: Response) => {
+export const destroyToken = (req: Request, res: Response) => {
   const token = req.headers["x-access-token"] as string;
 
   if (invalidTokens.includes(token)) {
@@ -52,7 +53,6 @@ const destroyToken = (req: Request, res: Response) => {
   return res.status(200).send("Logout exitoso");
 };
 
-export { verifyToken, destroyToken };
 
 
 

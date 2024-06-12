@@ -65,68 +65,26 @@ Ejecuta el servidor con `npm run dev` (desarrollo) o `npm start` (producción).
 | PUT    | http:/localhost:PORT/api/tracks/:id | Actualizasr canción por ID     | `title`, `genre: {name, id}`, `image`, `date` | `id`                 |
 | DELETE | http:/localhost:PORT/api/tracks/:id | Eliminar canción por ID       |                               | `id`                 |
 
+### Álbums de Música
 
-### Lista de Reproducción
+#### Esquema de Álbums de Música
 
-#### Esquema de Lista de Reproducción
+| Clave      | Tipo            | Requerido |
+| :--------- | :-------------- | :-------- |
+| title      | string          | true      |
+| genre      | string          | true      |
+| owner      | ObjectId        | true      |
+| songs      | array[ObjectId] | true      |
+| image      | string          | true      |
+| uploadDate | Date            | false     |
 
-| Clave   | Tipo            | Requerido |
-| :------ | :-------------- | :-------- |
-| Name    | string          | true      |
-| Music   | array[ObjectId] | true      |
-| id_user | string          | true      |
-
-### Álbum de Música
-
-#### Esquema de Álbum de Música
-
-| Clave   | Tipo            | Requerido |
-| :------ | :-------------- | :-------- |
-| Name    | string          | true      |
-| genre   | string          | true      |
-| Music   | array[ObjectId] | true      |
-| id_user | string          | true      |
-
-#### Rutas de Álbum de Música
+#### Rutas de Álbums de Música
 
 | Método | Ruta           | Descripción                       | Parámetros en el cuerpo  | Parámetros en la URL |
 |--------|----------------|-----------------------------------|--------------------------|----------------------|
-| POST   | http:/localhost:PORT/api/albums        | Crear un nuevo álbum de música    | `Name`, `genre`, `Music`, `id_user` |                      |
-| GET    | http:/localhost:PORT/api/albums        | Obtener todos los álbumes         |                          |                      |
+| POST   | http:/localhost:PORT/api/albums        | Crear un nuevo álbum de música    | `title`, `genre`, `username`, `image?`, `songs?` |                      |
+| GET    | http:/localhost:PORT/api/albums        | Obtener todos los álbumes         | `title`,`username`       |                      |
 | GET    | http:/localhost:PORT/api/albums/:id    | Obtener un álbum por ID           |                          | `id`                 |
-| PUT    | http:/localhost:PORT/api/albums/:id    | Actualizar un álbum por ID        | `Name`, `genre`, `Music` | `id`                 |
-| DELETE | http:/localhost:PORT/api/albums/:id    | Eliminar un álbum por ID          |                          | `id`                 |
+| PUT    | http:/localhost:PORT/api/albums/:id    | Actualizar un álbum por ID        | `title?`, `genre?`, `image?`, `songs?`, `username` | `id`                 |
+| DELETE | http:/localhost:PORT/api/albums        | Eliminar un álbum por ID          | `title`, `username`      |                      |
 
-
-### Eventos
-
-#### Esquema de Eventos
-
-| Clave   | Tipo   | Requerido |
-| :------ | :----- | :-------- |
-| Title   | string | true      |
-| Text    | string | true      |
-| id_user | string | true      |
-| date    | date   | true      |
-| image   | string | false     |
-
-### Genero
-
-#### Esquema de Genero
-
-| Clave   | Tipo   | Requerido |
-| :------ | :----- | :-------- |
-| name   | string | true      |
-| soundTracks    | array[ObjectId] | false      |
-| image   | string | false     |
-
-#### Rutas de Genero
-
-| Método | Ruta       | Descripción                       | Parámetros en el cuerpo       | Parámetros en la URL |
-|--------|------------|-----------------------------------|-------------------------------|----------------------|
-| POST   | http:/localhost:PORT/api/genrer     | Crea una canción           | `name`, `image` |                      |
-| GET    | http:/localhost:PORT/api/genrer     | Obtener canción por ID       |                               |                      |
-| GET    | http:/localhost:PORT/api/genrer/:id | Obtener canción por ID        |                               | `id`                 |
-| PUT    | http:/localhost:PORT/api/genrer/:id | Actualizasr canción por ID     | `soundTracks` | `id`                 |
-| PUT    | http:/localhost:PORT/api/genrer/image/:id | Actualizasr canción por ID     |`image` | `id`                 |
-| DELETE | http:/localhost:PORT/api/genrer/:id | Eliminar canción por ID       |                               | `id`                 |
