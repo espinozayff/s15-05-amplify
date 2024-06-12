@@ -19,6 +19,8 @@ interface IPlayerStore {
   currentIndex: number;
   setTracks: (newTracks: ITrack[]) => void;
   setIndex: (newIndex: number) => void;
+  currentAlbumIndex: number; // Nuevo estado para almacenar el índice del álbum actual
+  setCurrentAlbumIndex: (index: number) => void; // Función para actualizar el índice del álbum actual
 }
 
 const usePlayerStore = create<IPlayerStore>((set) => ({
@@ -26,6 +28,8 @@ const usePlayerStore = create<IPlayerStore>((set) => ({
   currentIndex: 0,
   setTracks: (newTracks: ITrack[]) => set({ tracks: newTracks }),
   setIndex: (newIndex: number) => set({ currentIndex: newIndex }),
+  currentAlbumIndex: 0, // Inicialmente, se establece en 0 o el índice del álbum por defecto
+  setCurrentAlbumIndex: (index: number) => set({ currentAlbumIndex: index }), // Función para actualizar el índice del álbum actual
 }));
 
 export default usePlayerStore;

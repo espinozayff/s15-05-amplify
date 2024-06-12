@@ -6,26 +6,58 @@ import CommentSection from "components/common/CommentSection";
 import OptionSelect from "components/common/OptionSelect";
 import { useState } from "react";
 import Button from "components/common/Button/Button";
+import usePlayerStore from "store/playerStore";
 
-interface Option {
-  value: string;
-  label: string;
+interface Song {
+  song_id: number;
+  title: string;
+  gender: string;
+  cover_image: string;
+  file: string;
 }
 
-const options: Option[] = [
+interface AlbumProps {
+  title: string;
+  author: string;
+  image: string;
+  songs: Song[];
+}
+
+const options = [
   { value: "top", label: "Top Comentarios" },
   { value: "new", label: "Más Reciente" },
   { value: "ancient", label: "Más Antiguo" },
 ];
 
-export default function Album() {
+const Album: React.FC = () => {
   const location = useLocation();
-  const { title, author, image } = location.state;
-
+  const { title, author, image, songs } = location.state as AlbumProps;
+  const { setIndex, tracks } = usePlayerStore();
   const [selectedOption, setSelectedOption] = useState<string>("");
 
   const handleSelectChange = (value: string) => {
     setSelectedOption(value);
+  };
+
+  const handlePlayButtonClick = (songId: number) => {
+    const songIndex = songs.findIndex((song) => song.song_id === songId);
+
+    if (songIndex !== -1) {
+      const songTitle = songs[songIndex].title;
+
+      // Assuming tracks and setIndex function are properly defined
+      const trackIndex = tracks.findIndex(
+        (track) => track.album === title && track.title === songTitle,
+      );
+
+      if (trackIndex !== -1) {
+        setIndex(trackIndex);
+      } else {
+        console.error(`Track not found for song ${songTitle}`);
+      }
+    } else {
+      console.error(`Song with song_id ${songId} not found`);
+    }
   };
 
   return (
@@ -50,7 +82,10 @@ export default function Album() {
             <button className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-black rounded-full">
               <img className="" src={heartIcon} alt="Heart icon" />
             </button>
-            <button className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-[#9D174D] rounded-full">
+            <button
+              onClick={() => handlePlayButtonClick(1)}
+              className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-[#9D174D] rounded-full"
+            >
               <img className="ml-1" src={playIcon} alt="Play icon" />
             </button>
           </div>
@@ -58,18 +93,21 @@ export default function Album() {
         </div>
 
         <div className="mt-4">
-          {["TEMA 1", "TEMA 2", "TEMA 3"].map((tema, index) => (
+          {songs.map((song) => (
             <div
-              key={index}
+              key={song.song_id}
               className="flex items-center justify-between border-b border-[#333] py-2"
             >
               <div className="flex items-center">
-                <button className="text-xl w-9 h-9 flex pb-1 justify-center items-center border border-white rounded-full">
-                  +
-                </button>
-                <span className="ml-4">{tema}</span>
+                <div className="w-10">
+                  <img src={song.cover_image} alt="" />
+                </div>
+                <span className="ml-4">{song.title}</span>
               </div>
-              <button className="text-xl flex justify-center items-center w-9 h-9 border border-white bg-black rounded-full">
+              <button
+                onClick={() => handlePlayButtonClick(song.song_id)}
+                className="text-xl flex justify-center items-center w-9 h-9 border border-white bg-black rounded-full"
+              >
                 <img className="ml-1" src={playIcon} alt="Play icon" />
               </button>
             </div>
@@ -113,4 +151,6 @@ export default function Album() {
       </div>
     </div>
   );
-}
+};
+
+export default Album;

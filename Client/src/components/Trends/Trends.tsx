@@ -8,6 +8,7 @@ export default function Trends() {
     title: item.title,
     author: item.author,
     image: item.cover_image,
+    songs: item.songs,
   }));
 
   return (
@@ -27,6 +28,7 @@ export default function Trends() {
             title={item.title}
             author={item.author}
             image={item.image}
+            songs={item.songs}
           />
         ))}
       </div>
@@ -39,6 +41,7 @@ export default function Trends() {
             title={item.title}
             author={item.author}
             image={item.image}
+            songs={item.songs}
           />
         ))}
       </div>
