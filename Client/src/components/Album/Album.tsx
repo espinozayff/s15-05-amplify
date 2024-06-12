@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar from "components/Layout/Sidebar";
 import playIcon from "../../assets/img/playIcon.svg";
-import heartIcon from "../../assets/img/Heart Filled.svg";
+import HeartButton from "components/common/HeartButton";
 import CommentSection from "components/common/CommentSection";
 import OptionSelect from "components/common/OptionSelect";
-import { useState } from "react";
 import Button from "components/common/Button/Button";
 
 interface Option {
@@ -23,6 +23,10 @@ export default function Album() {
   const { title, author, image } = location.state;
 
   const [selectedOption, setSelectedOption] = useState<string>("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSelectChange = (value: string) => {
     setSelectedOption(value);
@@ -47,9 +51,7 @@ export default function Album() {
             <p className="text-[#BDBDBD] font-bold text-2xl mb-2">{author}</p>
           </div>
           <div className="flex gap-5">
-            <button className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-black rounded-full">
-              <img className="" src={heartIcon} alt="Heart icon" />
-            </button>
+            <HeartButton albumTitle={title} />
             <button className="text-xl flex justify-center items-center w-12 h-12 border border-white bg-[#9D174D] rounded-full">
               <img className="ml-1" src={playIcon} alt="Play icon" />
             </button>
