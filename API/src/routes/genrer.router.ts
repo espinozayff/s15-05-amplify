@@ -1,8 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
 import genrerController from "../controllers/genrer.controller";
-import { verifyToken } from "../middleware/auth";
-
 
 const router = Router();
 const upload = multer({ dest: "uploads/" });
@@ -15,7 +13,7 @@ const upload = multer({ dest: "uploads/" });
  *   description: Endpoints relacionados con géneros musicales
  */
 
-router.get('/', verifyToken, genrerController.getGenrer);
+router.get('/', genrerController.getGenrer);
 
 /**
  * @swagger
@@ -108,7 +106,7 @@ router.put('/:id', genrerController.updateGenrer);
  *       404:
  *         description: Género no encontrado.
  */
-router.put('/image/:id', genrerController.updateImage);
+router.put('/image/:id', upload.single('image'), genrerController.updateImage);
 
 /**
  * @swagger

@@ -19,7 +19,7 @@ import { Response } from "express"
     OK (res: Response, data:any):Response {
       return res.status(httpStatus.OK).json({
         status: httpStatus.OK,
-        statusMsg: 'Succes',
+        statusMsg: 'Success',
         data: data
       });
     };

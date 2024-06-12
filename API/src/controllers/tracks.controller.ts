@@ -32,8 +32,11 @@ class tracksController {
   async createTrack(req: CustomRequest, res: Response) {
     try {
       const user = req.user!.id
-      const { title, genre, album } = req.body;
+      const { title, genrer, album } = req.body;
+
+      
       const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+      const parsedGenrer = JSON.parse(genrer);
 
       if (!files.songData || !files.image) {
         return HttpResponse.NotFound(
@@ -44,7 +47,7 @@ class tracksController {
       
       const songFile = files.songData[0];
       const imageFile = files.image[0];
-      const body = { title, genre, album, user };
+      const body = { title, genrer:parsedGenrer, album, user };
       const savedTrack = await trackService.createTrack(
         songFile,
         body,
