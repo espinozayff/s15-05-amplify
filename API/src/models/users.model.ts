@@ -8,6 +8,8 @@ export interface IUser extends Document {
   password: string;
   avatar?: string;
   username: string;
+  name:string;
+  last_name:string;
   favorite: Types.ObjectId[];
   my_music: Types.ObjectId[];
   playlists: Types.ObjectId[];
@@ -24,6 +26,8 @@ const userSchema = new Schema<IUser>(
       default: "https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg",
     },
     username: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
+    last_name: { type: String, required: true },
     favorite: [{ type: Types.ObjectId, ref: "music" }],
     my_music: [{ type: Types.ObjectId, ref: "music" }],
     playlists: [{ type: Types.ObjectId, ref: "playlist" }],

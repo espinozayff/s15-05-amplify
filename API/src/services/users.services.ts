@@ -6,6 +6,8 @@ interface UserData {
   password: string;
   avatar?: string;
   username: string;
+  name: string;
+  last_name: string
 }
 
 class UserService {

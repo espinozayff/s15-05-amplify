@@ -3,8 +3,10 @@ import multer from "multer";
 import genrerController from "../controllers/genrer.controller";
 import { verifyToken } from "../middleware/auth";
 
+
 const router = Router();
 const upload = multer({ dest: "uploads/" });
+
 
 /**
  * @swagger
@@ -35,6 +37,9 @@ router.get('/', verifyToken, genrerController.getGenrer);
  *       404:
  *         description: Género no encontrado.
  */
+
+router.get('/',  genrerController.getGenrer);
+
 router.get('/:id', genrerController.getGenrerById);
 
 /**

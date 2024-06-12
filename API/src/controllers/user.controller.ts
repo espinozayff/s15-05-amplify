@@ -28,6 +28,8 @@ interface UserData {
   password: string;
   avatar?: string;
   username: string;
+  name: string;
+  last_name: string;
 }
 
 class UsersController {
@@ -74,6 +76,8 @@ class UsersController {
           _id: user._id,
           email: user.email,
           username: user.username,
+          name: user.name,
+          last_name: user.last_name,
           avatar: user.avatar,
           favorite: user.favorite,
           my_music: user.my_music,
