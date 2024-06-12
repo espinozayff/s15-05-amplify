@@ -1,31 +1,13 @@
-
 import CardTend from "../common/CardTend";
-import punk from "../../assets/img/punkmylife.png";
-import brave from "../../assets/img/braveoldmen.png";
-import prego from "../../assets/img/tiprego.png";
-import ohiyo from "../../assets/img/ohiyo.png";
-import mylove from "../../assets/img/itwasmylove.png";
-import rome from "../../assets/img/rome.png";
-import hungover from "../../assets/img/hungover.png";
-import maria from "../../assets/img/maria.png";
-import { TrendData, ImageMap } from "./Trends.types";
-import trendData from "../../data/trendsData.json";
-
-const imageMap: ImageMap = {
-  punk,
-  brave,
-  prego,
-  ohiyo,
-  mylove,
-  rome,
-  hungover,
-  maria,
-};
+import trendData from "../../data/amplifyDataBack.json";
 
 export default function Trends() {
-  const data: TrendData[] = trendData.map((item: TrendData) => ({
-    ...item,
-    image: imageMap[item.image],
+  const data = trendData.tracks.map((item) => ({
+    id: item.track_id,
+    genre: item.genre,
+    title: item.title,
+    author: item.author,
+    image: item.cover_image,
   }));
 
   return (
@@ -39,6 +21,7 @@ export default function Trends() {
       <div className="gap-1 hidden md:flex flex-wrap">
         {data.map((item) => (
           <CardTend
+            key={item.id}
             id={item.id}
             genre={item.genre}
             title={item.title}
@@ -50,6 +33,7 @@ export default function Trends() {
       <div className="flex md:hidden overflow-x-scroll">
         {data.map((item) => (
           <CardTend
+            key={item.id}
             id={item.id}
             genre={item.genre}
             title={item.title}
