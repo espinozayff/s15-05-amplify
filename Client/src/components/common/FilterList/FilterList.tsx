@@ -37,6 +37,7 @@ const FilterList: React.FC<Props> = ({ searchText }) => {
                     title: track.title,
                     author: track.author,
                     image: track.cover_image,
+                    songs: track.songs,
                   }}
                   className="flex items-center justify-between mb-2"
                 >
