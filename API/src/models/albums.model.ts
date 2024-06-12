@@ -17,30 +17,7 @@ const albumSchema = new Schema <IAlbum>({
     },
     genre: {
         type: String,
-        required: true,
-        enum: ["Afrosounds",
-            "Hip-Hop/Rap",
-            "Latin",
-            "Jazz/Blues",
-            "Caribben",
-            "Pop",
-            "Gospel",
-            "Grunge",
-            "Electronic",
-            "Rock",
-            "Country",
-            "Instrumental",
-            "Tango",
-            "Hard Rock",
-            "Progressive Rock",
-            "Metal",
-            "Folk",
-            "Opera",
-            "Classical",
-            "Disco",
-            "Punk",
-            "Chamamé"
-        ]
+        required: true
     },
     owner: {
         type: SchemaTypes.ObjectId,
