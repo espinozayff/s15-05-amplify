@@ -28,7 +28,7 @@ function ProgressBar(props: AudioProgressBarProps): JSX.Element {
     <div className="w-full md:max-w-[50%] mx-auto md:space-y-3.5 py-3 max-md:-mt-1 max-md:order-0">
       <small className="block text-xs text-center max-md:hidden">
         Album:
-        <b>{album}</b>
+        <b className="ml-2">{album}</b>
       </small>
       <div className="flex items-baseline gap-3 w-full text-xs font-semibold">
         <span className="w-[5ch] hidden md:block text-center">

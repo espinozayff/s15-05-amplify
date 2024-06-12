@@ -11,11 +11,11 @@ function Feed(): JSX.Element {
       <Carousel />
 
       <div className="flex md:p-0 md:pr-2 p-2  md:gap-2 ">
-        <div className="w-1/5">
+        <div className="lg:w-1/5 w-0">
           <Sidebar />
         </div>
         {/* Tendencias */}
-        <div className="w-full md:w-4/5">
+        <div className="w-full lg:w-4/5">
           <Trends />
         </div>
       </div>
