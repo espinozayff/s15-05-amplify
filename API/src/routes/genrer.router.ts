@@ -108,7 +108,7 @@ router.put('/:id', genrerController.updateGenrer);
  *       404:
  *         description: Género no encontrado.
  */
-router.put('/image/:id', genrerController.updateImage);
+router.put('/image/:id', upload.single('image'), genrerController.updateImage);
 
 /**
  * @swagger
