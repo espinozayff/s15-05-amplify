@@ -17,7 +17,7 @@ const albumSchema = new Schema <IAlbum>({
     },
     genre: {
         type: String,
-        required: true,
+        required: true
     },
     owner: {
         type: SchemaTypes.ObjectId,

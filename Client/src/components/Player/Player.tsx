@@ -141,8 +141,9 @@ function Player(): JSX.Element | null {
         >
           <div ref={wsContainer} className="w-full cursor-pointer max-md:hidden"></div>
         </ProgressBar>
-
-        <Tracks tracks={tracks} handler={changeSong} />
+        <div className="">
+          <Tracks tracks={tracks} handler={changeSong} />
+        </div>
       </div>
     </div>
   );

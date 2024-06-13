@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 import { FaPen } from "react-icons/fa";
-
 
 const ButtonEdit: React.FC = () => {
   return (

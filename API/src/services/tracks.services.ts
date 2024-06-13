@@ -7,7 +7,10 @@ import genrerServices from "./genrer.services";
 class trackService {
   async getTracks(query: any): Promise<any[]> {
     try {
-      const tracks = await Soundtrack.find(query).populate('user').populate('likes').populate('album');
+      const tracks = await Soundtrack.find(query)
+        .populate("user")
+        .populate("likes")
+        .populate("album");
       if (!tracks) throw new Error("Canciones no encontradas");
       return tracks;
     } catch (error) {
@@ -19,7 +22,10 @@ class trackService {
 
   async getTrackById(id: any): Promise<any> {
     try {
-      const tracks = await Soundtrack.findById(id).populate('user').populate('likes').populate('album');
+      const tracks = await Soundtrack.findById(id)
+        .populate("user")
+        .populate("likes")
+        .populate("album");
       if (!tracks) throw new Error("Cancion no encontradas");
       return tracks;
     } catch (error) {
@@ -29,19 +35,22 @@ class trackService {
     }
   }
 
-  async createTrack(songFile: UploadFile, body: trackInterface, imageFile:any): Promise<any> {
+  async createTrack(
+    songFile: UploadFile,
+    body: trackInterface,
+    imageFile: any
+  ): Promise<any> {
     try {
       const { title, genrer, user, album } = body;
-
       const response = await cloudinary.uploader.upload(songFile.path, {
         resource_type: "video",
         folder: `Tracks/Singles`
       });
 
-      const imageStore = await cloudinary.uploader.upload(imageFile.path,{
+      const imageStore = await cloudinary.uploader.upload(imageFile.path, {
         resource_type: "image",
         folder: `Tracks/Singles`
-      })
+      });
 
       const genrerUpload = await genrerModel.findById(genrer!.id);
       if (!genrerUpload) throw new Error("Género no encontrado");
@@ -51,43 +60,52 @@ class trackService {
         user,
         url: response.secure_url,
         image: imageStore.secure_url,
-        album
+        album,
       });
-      
+
       const savedTrack = await newTrack.save();
-      const updateGenrer = await genrerServices.updateGenrer(genrer!.id, savedTrack.id);
-      return {msg:'Canción creada exitosamente'};
+      const updateGenrer = await genrerServices.updateGenrer(
+        genrer!.id,
+        savedTrack.id
+      );
+      return { msg: "Canción creada exitosamente" };
     } catch (error) {
       throw new Error(`Error al crear la canción: ${(error as Error).message}`);
     }
   }
 
-  async updateTrack(id:string, data:any): Promise<any> {
+  async updateTrack(id: string, data: any): Promise<any> {
     try {
-      if(data.image){
+      if (data.image) {
         const image = data.image;
-        const imageStore = await cloudinary.uploader.upload(image.path,{
+        const imageStore = await cloudinary.uploader.upload(image.path, {
           resource_type: "image",
-        })
+        });
         data.image = imageStore.secure_url;
       }
       const tracks = await Soundtrack.findById(id);
       if (!tracks) throw new Error("Cancion no encontradas");
-      const updTrasck = await Soundtrack.findByIdAndUpdate(id, data, { new: true });
-      return {msg: 'Canción actualizada'};
+      const updTrasck = await Soundtrack.findByIdAndUpdate(id, data, {
+        new: true,
+      });
+      return { msg: "Canción actualizada" };
     } catch (error) {
-      throw new Error(`Error al actualizar la canción: ${(error as Error).message}`);
+      throw new Error(
+        `Error al actualizar la canción: ${(error as Error).message}`
+      );
     }
   }
 
-  async deleteTrack(id:string):Promise<any>{
+  async deleteTrack(id: string): Promise<any> {
     try {
       const tracks = await Soundtrack.findById(id);
       if (!tracks) throw new Error("Cancion no encontradas");
       const delTrack = await Soundtrack.findByIdAndDelete(id);
-      return {msg: 'Canción eliminada'};
+      return { msg: "Canción eliminada" };
     } catch (error) {
-      throw new Error(`Error al eliminar la canción: ${(error as Error).message}`);
+      throw new Error(
+        `Error al eliminar la canción: ${(error as Error).message}`
+      );
     }
   }
 }

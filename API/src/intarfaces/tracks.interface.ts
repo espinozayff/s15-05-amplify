@@ -18,5 +18,5 @@ export interface UploadFile {
 
 interface genrer {
     name: string,
-    id: ObjectId
+    id: string
 }

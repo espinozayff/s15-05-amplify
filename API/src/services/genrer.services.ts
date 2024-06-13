@@ -5,7 +5,7 @@ import cloudinary from "../config/cloudinary.config";
 class genreService {
   async getGenrer(query: any): Promise<any[]> {
     try {
-      const genrer = await genrerModel.find(query);
+      const genrer = await genrerModel.find(query).populate('soundTracks');
       if (!genrer) throw new Error("Generos no encontrados");
       const sortedGenrer = genrer.sort(
         (a, b) => b.soundTracks.length - a.soundTracks.length
@@ -20,7 +20,7 @@ class genreService {
 
   async getGenrerById(id: any): Promise<any> {
     try {
-      const genrer = await genrerModel.findById(id);
+      const genrer = await genrerModel.findById(id).populate('soundTracks');
       if (!genrer) throw new Error("Genero no encontrado");
       return genrer;
     } catch (error) {
