@@ -107,7 +107,6 @@ export const createAlbum = async (
       ? songs.map((song) => new Types.ObjectId(song))
       : [];
 
-      console.log(image)
   const newAlbum = await albumsModel.create({
     title: title,
     genre: genre,
@@ -125,33 +124,26 @@ export const updateOneAlbum = async (id: String, data: albumModel) => {
     return 0;
   } else {
     const album = await albumsModel
-      .findOneAndUpdate(
-        { _id: id, owner: user._id },
-        {
-          $set: {
-            title,
-            genre,
-            image,
-            songs,
-            uploadDate: Date.now(),
+    .findOneAndUpdate(
+      { _id: id, owner: user._id },
+      {
+        $push: {
+          songs: songs,
+        },
+        $set: {
+          title,
+          genre,
+          image,
+          uploadDate: Date.now(),
           },
         },
         { new: true }
       )
       .populate("songs");
-    if (!album) {
-      return 0;
-    } else {
-      const album = await albumsModel.findOneAndUpdate(
-        { owner: user._id, title: data.title, uploadDate: data.uploadDate },
-        { $set: title, genre, songs },
-        { new: true }
-      );
       if (!album) {
-        return 0;
-      } else {
+      return 0;
+    } else {      
         return album;
-      }
     }
   }
 };
