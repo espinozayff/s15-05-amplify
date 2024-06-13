@@ -191,22 +191,22 @@
           "song_id": 1,
           "title": "Unbound",
           "gender": "Alternative rock",
-          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155490/Tracks/HORIZONTE-INTERESTELAR/Img/1.That%20City%20%28Underwater%29.png",
-          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155469/Tracks/HORIZONTE-INTERESTELAR/Music/1.That%20City%20%28Underwater%29.mp3"
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718156462/Tracks/VIBRACIONES-DEL-ALMA/Img/1.Unbound.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718156441/Tracks/VIBRACIONES-DEL-ALMA/Music/1.Unbound.mp3"
         },
         {
           "song_id": 2,
           "title": "Missin' You Tonight",
           "gender": "Acoustic guitar",
-          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155748/Tracks/HORIZONTE-INTERESTELAR/Img/2.UDIO%20at%20my%20show.png",
-          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718155723/Tracks/HORIZONTE-INTERESTELAR/Music/2.UDIO%20at%20my%20show.mp3"
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718156687/Tracks/VIBRACIONES-DEL-ALMA/Img/2.Missin%27%20You%20Tonight.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718156658/Tracks/VIBRACIONES-DEL-ALMA/Music/2.Missin%27%20You%20Tonight.mp3"
         },
         {
           "song_id": 3,
           "title": "Please Just Stay",
           "gender": "Nu metal",
-          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718155973/Tracks/HORIZONTE-INTERESTELAR/Img/3.SNES%20Greensleeves.png",
-          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718156001/Tracks/HORIZONTE-INTERESTELAR/Music/3.SNES%20Greensleeves.mp3"
+          "cover_image": "https://res.cloudinary.com/drwwbw0ih/image/upload/v1718157016/Tracks/VIBRACIONES-DEL-ALMA/Img/3.Please%20Just%20Stay.png",
+          "file": "https://res.cloudinary.com/drwwbw0ih/video/upload/v1718157041/Tracks/VIBRACIONES-DEL-ALMA/Music/3.Please%20Just%20Stay.mp3"
         }
       ]
     },
