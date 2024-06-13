@@ -1,4 +1,5 @@
-import { Router } from 'express';
+import { Router } from "express"
+import multer from "multer";
 import {
     getAlbums,
     getAlbumById,
@@ -7,7 +8,9 @@ import {
     deleteAlbum
 } from "../controllers/albums.controller"
 
-const albumsRouter = Router();
+const upload = multer({ dest: "uploads/" });
+
+const albumsRouter = Router()
 
 /**
  * @swagger
@@ -28,6 +31,7 @@ const albumsRouter = Router();
  *         description: Lista de álbumes recuperada con éxito.
  */
 albumsRouter.get('/', getAlbums);
+
 
 /**
  * @swagger
@@ -62,7 +66,7 @@ albumsRouter.get('/:id', getAlbumById);
  *       201:
  *         description: Álbum creado con éxito.
  */
-albumsRouter.post('/', newAlbum);
+albumsRouter.post('/', upload.single('image'), newAlbum)
 
 /**
  * @swagger

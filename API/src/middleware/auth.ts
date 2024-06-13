@@ -33,7 +33,6 @@ export const verifyToken = (req: CustomRequest, res: Response, next: NextFunctio
   try {
     const decoded = jwt.verify(token, JWT_KEY) as DecodedToken;
     req.user = decoded;
-    console.log(req.user.email);
     return next();
   } catch (error) {
     console.error("JWT verification error:", error);

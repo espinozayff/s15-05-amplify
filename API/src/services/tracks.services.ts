@@ -44,10 +44,12 @@ class trackService {
       const { title, genrer, user, album } = body;
       const response = await cloudinary.uploader.upload(songFile.path, {
         resource_type: "video",
+        folder: `Tracks/Singles`
       });
 
       const imageStore = await cloudinary.uploader.upload(imageFile.path, {
         resource_type: "image",
+        folder: `Tracks/Singles`
       });
 
       const genrerUpload = await genrerModel.findById(genrer!.id);
